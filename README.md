@@ -98,6 +98,6 @@ python predict.py
 
 ---
 
-**Author**: Your GitHub ID  
+**Author**: wuchizhitu7  
 **Project Date**: 2026
 ```
