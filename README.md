@@ -22,6 +22,7 @@
 | `features_extractor.py` | **特征工程层**：利用 `TextBlob` 进行情感分析，并对 URL 的词法结构进行多维度量化提取。 |
 | `model.py` | **模型训练层**：构建混合特征处理流水线，执行交叉验证，生成最终的随机森林 `.pkl` 模型。 |
 | `predict.py` | **推理应用层**：支持解析标准 `.eml` 邮件文件，自动完成特征对齐并给出实时恶意概率评分。 |
+| `app_gradio.py` | **系统可视化界面**：上传eml邮件，输出邮件的判定以及恶意概率，提取出邮件中的URL。 |
 | `enriched_emails_dataset.csv` | 包含所有手工提取特征及标签的结构化数据集，可直接用于模型复现。 |
 | `phishing_detector_final.pkl` | 经过训练且包含预处理逻辑（Pipeline）的持久化分类模型文件。 |
 
