@@ -31,6 +31,7 @@
 ## 🛠️ 技术栈
 
 - **数据处理**: `Pandas`, `NumPy`, `mailbox`
+- **可视化界面**：`Gradio`
 - **自然语言处理**: `TextBlob` (语义分析), `BeautifulSoup4` (HTML 提取), `Scikit-learn (TfidfVectorizer)`
 - **机器学习**: `Scikit-learn (RandomForestClassifier, Pipeline, ColumnTransformer)`
 - **模型导出**: `Joblib`
