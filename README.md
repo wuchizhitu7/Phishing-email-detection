@@ -52,6 +52,17 @@
 
 ---
 
+
+## 📸 系统运行截图
+
+<img width="1720" height="762" alt="dee12152-55d4-4afc-81a5-926fcd906773" src="https://github.com/user-attachments/assets/cf466b04-13ae-4b39-ae6a-00c9799311a2" />
+图 1：基于 Gradio 搭建的交互式上传与分析界面
+
+<img width="1707" height="819" alt="49ea551c-80f5-4406-bf50-7109e5346e28" src="https://github.com/user-attachments/assets/39e851a1-2622-4098-9988-82048da951d4" />
+图 2：当恶意概率 > 70% 时，系统自动判定为高危并提取风险 URL
+
+---
+
 ## 🚀 快速开始
 
 ### 1. 环境准备
