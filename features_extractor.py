@@ -67,7 +67,6 @@ if __name__ == "__main__":
     # 4. 提取 URL 结构特征
     print("正在分析 URL 结构...")
     url_features = df['urls'].apply(extractor.analyze_url_structure)
-    # 注意：确保 analyze_url_structure 返回的是 6 个元素
     feature_cols = ['avg_url_len', 'avg_url_dots', 'has_at_symbol', 'has_ip_url', 'avg_subdomains', 'url_count_check']
     df[feature_cols] = pd.DataFrame(url_features.tolist(), index=df.index)
 
