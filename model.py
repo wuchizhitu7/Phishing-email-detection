@@ -37,7 +37,7 @@ pipeline = Pipeline(steps=[
 X = df[[text_feature] + numeric_features]
 y = df['label']
 
-# 6. 进行 5 折交叉验证 (验证真实泛化能力)
+# 6. 进行 5 折交叉验证，验证真实泛化能力
 print("正在进行交叉验证，请稍候...")
 cv_scores = cross_val_score(pipeline, X, y, cv=5)
 print(f"5折交叉验证平均得分: {cv_scores.mean():.4f} (+/- {cv_scores.std():.4f})")
@@ -60,15 +60,11 @@ importance_df = pd.DataFrame({'feature': all_feature_names, 'importance': import
 print("\n--- 贡献度前 10 的特征 ---")
 print(importance_df.sort_values(by='importance', ascending=False).head(10))
 
-
-# 1. 确保模型已经针对全量训练数据进行了 fit
-# 在之前的代码中我们已经做了：pipeline.fit(X_train, y_train)
-
-# 2. 保存模型文件
+# 保存模型文件
 model_filename = 'phishing_detector_final.pkl'
 joblib.dump(pipeline, model_filename)
 
 print(f"\n[成功] 最终模型已保存为: {model_filename}")
 
-# 3. 保存特征列名，方便以后预测时对齐
+# 保存特征列名，方便以后预测时对齐
 joblib.dump(numeric_features, 'numeric_features_list.pkl')
