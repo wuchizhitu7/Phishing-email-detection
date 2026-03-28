@@ -8,10 +8,8 @@ import email
 from email import policy
 from bs4 import BeautifulSoup
 
-# 加载训练好的模型
-# 请确保之前运行了 joblib.dump(pipeline, 'phishing_detector_final.pkl')
+# 加载模型
 model = joblib.load('phishing_detector_final.pkl')
-
 
 class EMLPredictor:
     def __init__(self, model_path):
@@ -65,7 +63,7 @@ class EMLPredictor:
             subdomains = [len(urlparse(u).netloc.split('.')) for u in urls]
             url_feats = [np.mean(lens), np.mean(dots), has_at, has_ip, np.mean(subdomains), len(urls)]
 
-        # 3. 构造输入 DataFrame (列名必须与训练时完全一致)
+        # 3. 构造输入 DataFrame
         input_df = pd.DataFrame([{
             'body': body,
             'sentiment': sentiment,
@@ -91,10 +89,6 @@ class EMLPredictor:
         if label == 1:
             print("风险提示: 该邮件包含典型的钓鱼特征，请勿点击文中链接或输入个人信息。")
 
-
-# --- 使用示例 ---
 if __name__ == "__main__":
     predictor = EMLPredictor('phishing_detector_final.pkl')
-
-    # 请确保你有一个 test.eml 文件放在同目录下
     predictor.predict(r"D:\下载\AD_您有机会赢取丰厚大奖：奖品总价值_¥3,500,000.eml")
