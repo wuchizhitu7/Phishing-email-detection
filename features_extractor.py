@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import re
 from urllib.parse import urlparse
-from textblob import TextBlob  # 用于简单的语义情感分析
+from textblob import TextBlob  
 from data_clean import get_cleaned_dataframe
 
 class DeepFeatureExtractor:
@@ -14,7 +14,7 @@ class DeepFeatureExtractor:
         blob = TextBlob(str(text))
         # 1. 情感极性：钓鱼邮件往往情绪波动较大
         sentiment = blob.sentiment.polarity
-        # 2. 主观性：钓鱼邮件通常较为主观（诱导性）
+        # 2. 主观性：钓鱼邮件通常较为主观
         subjectivity = blob.sentiment.subjectivity
         return sentiment, subjectivity
 
@@ -34,7 +34,7 @@ class DeepFeatureExtractor:
             lengths.append(len(url))
             dot_counts.append(url.count('.'))
             if '@' in url: has_at = 1
-            # 简单正则判断是否包含IP地址
+            # 正则判断是否包含IP地址
             if re.search(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', url): has_ip = 1
 
             # 解析域名
