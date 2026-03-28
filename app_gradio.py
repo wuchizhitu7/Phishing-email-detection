@@ -1,26 +1,19 @@
 import gradio as gr
-import joblib
 import time
 import os
 import re
-import webbrowser
 import numpy as np
 import pandas as pd
-from gradio import close_all
 from textblob import TextBlob
 from urllib.parse import urlparse
 from predict import EMLPredictor
 
-# --- 路径处理 ---
+# 路径处理
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, 'phishing_detector_final.pkl')
 
-# --- 初始化预测器 ---
-try:
-    predictor = EMLPredictor(MODEL_PATH)
-except Exception as e:
-    print(f"错误：无法加载模型文件: {e}")
-
+# 初始化预测器
+predictor = EMLPredictor(MODEL_PATH)
 
 def process_email(file):
     if file is None:
@@ -61,7 +54,7 @@ def process_email(file):
         # 4. 执行预测
         prob = predictor.model.predict_proba(input_df)[0][1]
 
-        # --- 细分类逻辑 ---
+        # 细分类
         if prob < 0.5:
             res = "✅ 安全：正常邮件"
             risk_level = "无风险"
@@ -81,18 +74,17 @@ def process_email(file):
         return f"处理失败: {str(e)}", "Error", "Error"
 
 
-# --- 退出功能函数 ---
+# 退出功能函数
 def exit_app():
     print("正在关闭系统...")
     time.sleep(0.5)
     os._exit(0)
 
 
-# --- 构建界面 ---
+# 构建界面
 with gr.Blocks(title="邮件安全检测") as demo:
     with gr.Row():
         gr.Markdown("# 🛡️ 钓鱼邮件 AI 检测系统")
-        # 添加退出按钮，使用 stop 变体颜色
         exit_btn = gr.Button("关闭系统", variant="stop", scale=0)
 
     with gr.Row():
@@ -122,5 +114,5 @@ with gr.Blocks(title="邮件安全检测") as demo:
     exit_btn.click(fn=exit_app,inputs=None, outputs=None,js=close_script)
 
 if __name__ == "__main__":
-    print("系统已启动，正在打开浏览器...")
+    print("正在打开浏览器...")
     demo.launch(inbrowser=True)
