@@ -11,7 +11,6 @@ from sklearn.metrics import classification_report
 df = pd.read_csv("enriched_emails_dataset.csv")
 
 # 2. 定义特征逻辑
-# 删除了 received_count
 numeric_features = [
     'sentiment', 'subjectivity', 'avg_url_len',
     'avg_url_dots', 'has_at_symbol', 'has_ip_url',
@@ -37,12 +36,12 @@ pipeline = Pipeline(steps=[
 X = df[[text_feature] + numeric_features]
 y = df['label']
 
-# 6. 进行 5 折交叉验证，验证真实泛化能力
-print("正在进行交叉验证，请稍候...")
+# 6. 5折交叉验证，验证真实泛化能力
+print("正在进行交叉验证...")
 cv_scores = cross_val_score(pipeline, X, y, cv=5)
 print(f"5折交叉验证平均得分: {cv_scores.mean():.4f} (+/- {cv_scores.std():.4f})")
 
-# 7. 训练最终模型并查看详细报告
+# 7. 训练模型并查看详细报告
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 pipeline.fit(X_train, y_train)
 y_pred = pipeline.predict(X_test)
@@ -66,5 +65,5 @@ joblib.dump(pipeline, model_filename)
 
 print(f"\n[成功] 最终模型已保存为: {model_filename}")
 
-# 保存特征列名，方便以后预测时对齐
+# 保存特征列名，方便预测时对齐
 joblib.dump(numeric_features, 'numeric_features_list.pkl')
