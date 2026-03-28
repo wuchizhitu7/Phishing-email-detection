@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 class EmailProcessor:
     def __init__(self):
-        # 预编译正则提高处理效率
+        # 预编译正则
         self.url_pattern = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 
     def _extract_urls(self, text):
@@ -34,18 +34,18 @@ class EmailProcessor:
         return body
 
     def _ultra_clean_text(self, text):
-        """深度清洗：处理乱码、转义符、编码异常"""
+        """处理乱码、转义符、编码异常"""
         if not text:
             return ""
         # 1. 清理 HTML 标签
         text = BeautifulSoup(text, "html.parser").get_text()
         # 2. 替换基础转义符
         text = text.replace('\xa0', ' ').replace('\t', ' ').replace('\r', ' ')
-        # 3. 过滤非打印字符（处理编码导致的 '?' 乱码）
+        # 3. 过滤非打印字符
         text = "".join(ch for ch in text if unicodedata.category(ch)[0] != 'C' or ch == '\n')
         # 4. 规范化空格
         text = re.sub(r' +', ' ', text)
-        # 5. 规范化换行（保留一个换行，压缩连续空行）
+        # 5. 规范化换行
         text = re.sub(r'\n\s*\n+', '\n', text)
         return text.strip()
 
@@ -69,7 +69,6 @@ class EmailProcessor:
             clean_body = self._ultra_clean_text(raw_body)
 
             # --- 维度 3: URL 处理 ---
-            # 注意：从原始 body 提取 URL 避免清洗过程破坏链接结构
             urls = self._extract_urls(raw_body)
 
             # 整合数据
@@ -87,23 +86,20 @@ class EmailProcessor:
         return processed_emails
 
 
-# ... 前面的类定义保持不变 ...
-
 def get_cleaned_dataframe():
     """封装解析逻辑，供外部调用"""
     processor = EmailProcessor()
-    # 这里的路径请确保正确
+
     normal_data = processor.process_mbox("emails-enron.mbox", label=0)
     phishing_data = processor.process_mbox("emails-phishing.mbox", label=1)
 
     full_data = normal_data + phishing_data
     df = pd.DataFrame(full_data)
-    # 去重逻辑
+    # 去重
     df = df.drop_duplicates(subset=['body'], keep='first')
     return df
 
 
 if __name__ == "__main__":
-    # 只有直接运行此脚本时才会执行
     df = get_cleaned_dataframe()
     print(df.head())
