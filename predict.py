@@ -7,27 +7,60 @@ import numpy as np
 import email
 from email import policy
 from bs4 import BeautifulSoup
+import torch
+import torch.nn as nn
+from transformers import AutoTokenizer, AutoModel
 
-# 加载模型
-model = joblib.load('phishing_detector_final.pkl')
 
+# 1. BERT 模型架构定义
+class PhishingBertModel(nn.Module):
+    def __init__(self, n_numeric_feats=8):
+        super(PhishingBertModel, self).__init__()
+        self.bert = AutoModel.from_pretrained("distilbert-base-uncased")
+        self.dropout = nn.Dropout(0.3)
+        self.classifier = nn.Sequential(
+            nn.Linear(768 + n_numeric_feats, 256),
+            nn.ReLU(),
+            nn.Linear(256, 2)
+        )
+
+    def forward(self, input_ids, attention_mask, numeric_feats):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        pooled_output = outputs.last_hidden_state[:, 0, :]
+        pooled_output = self.dropout(pooled_output)
+        combined = torch.cat((pooled_output, numeric_feats), dim=1)
+        return self.classifier(combined)
+
+
+# 2. 增强型 EML 预测器
 class EMLPredictor:
-    def __init__(self, model_path):
-        self.model = joblib.load(model_path)
+    def __init__(self, pipeline_path, bert_path):
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.url_pattern = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 
+        print(f"正在加载引擎... (设备: {self.device})")
+
+        # 加载 Pipeline 模型
+        self.rf_pipeline = joblib.load(pipeline_path)
+
+        # 加载 BERT 引擎
+        self.tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+        self.bert_model = PhishingBertModel(n_numeric_feats=8).to(self.device)
+        self.bert_model.load_state_dict(torch.load(bert_path, map_location=self.device))
+        self.bert_model.eval()
+
     def _extract_eml_content(self, eml_path):
-        """解析 EML 文件，提取正文和 URL"""
+        """解析 EML 获取清洗后的正文和 URL"""
         with open(eml_path, 'rb') as f:
             msg = email.message_from_binary_file(f, policy=policy.default)
 
-        # 提取正文
         body = ""
+        subject = str(msg.get('Subject', ''))
+
         if msg.is_multipart():
             for part in msg.walk():
                 ctype = part.get_content_type()
-                cdisp = str(part.get("Content-Disposition"))
-                if ctype in ["text/plain", "text/html"] and "attachment" not in cdisp:
+                if ctype in ["text/plain", "text/html"]:
                     payload = part.get_payload(decode=True)
                     if payload:
                         body += payload.decode(errors='ignore')
@@ -36,36 +69,32 @@ class EMLPredictor:
             if payload:
                 body = payload.decode(errors='ignore')
 
-        # 清洗 HTML 并提取 URL
         soup = BeautifulSoup(body, "html.parser")
         clean_text = soup.get_text()
         urls = re.findall(self.url_pattern, body)
 
-        return clean_text, urls
+        # 融合标题和正文
+        full_content = subject + " " + clean_text
+        return full_content, urls
 
-    def predict(self, eml_path):
-        """对单个 EML 文件进行预测"""
-        body, urls = self._extract_eml_content(eml_path)
-
-        # 1. 语义特征
+    def _get_numeric_dict(self, body, urls):
+        """提取数值特征并返回字典格式，方便转为 DataFrame"""
         blob = TextBlob(body)
         sentiment = blob.sentiment.polarity
         subjectivity = blob.sentiment.subjectivity
 
-        # 2. URL 结构特征
         if not urls:
-            url_feats = [0, 0, 0, 0, 0, 0]
+            url_feats = [0.0, 0.0, 0, 0, 0.0, 0]
         else:
             lens = [len(u) for u in urls]
             dots = [u.count('.') for u in urls]
             has_at = 1 if any('@' in u for u in urls) else 0
             has_ip = 1 if any(re.search(r'\d{1,3}\.\d{1,3}\.\d{1,3}', u) for u in urls) else 0
             subdomains = [len(urlparse(u).netloc.split('.')) for u in urls]
-            url_feats = [np.mean(lens), np.mean(dots), has_at, has_ip, np.mean(subdomains), len(urls)]
+            url_feats = [float(np.mean(lens)), float(np.mean(dots)), has_at, has_ip, float(np.mean(subdomains)),
+                         len(urls)]
 
-        # 3. 构造输入 DataFrame
-        input_df = pd.DataFrame([{
-            'body': body,
+        return {
             'sentiment': sentiment,
             'subjectivity': subjectivity,
             'avg_url_len': url_feats[0],
@@ -74,21 +103,54 @@ class EMLPredictor:
             'has_ip_url': url_feats[3],
             'avg_subdomains': url_feats[4],
             'url_count': url_feats[5]
-        }])
+        }
 
-        # 4. 执行预测
-        prob = self.model.predict_proba(input_df)[0][1]
-        label = self.model.predict(input_df)[0]
+    def predict(self, eml_path, mode="BERT"):
+        body, urls = self._extract_eml_content(eml_path)
+        num_dict = self._get_numeric_dict(body, urls)
 
-        print(f"\n--- 邮件检测报告: {eml_path} ---")
-        print(f"正文长度: {len(body)} 字符")
-        print(f"提取链接数: {len(urls)}")
+        if mode == "RF":
+            # 1. 构造与训练时完全一致的 DataFrame
+            input_data = {'body': body}
+            input_data.update(num_dict)
+            input_df = pd.DataFrame([input_data])
+
+            # 2. 直接调用 pipeline 推理
+            prob = self.rf_pipeline.predict_proba(input_df)[0][1]
+
+        else:
+            tokens = self.tokenizer.tokenize(body)
+            if len(tokens) > 510:
+                tokens = tokens[:255] + tokens[-255:]
+
+            inputs = self.tokenizer.encode_plus(
+                tokens, is_split_into_words=True, add_special_tokens=True,
+                max_length=512, padding='max_length', truncation=True, return_tensors='pt'
+            ).to(self.device)
+
+            # 将字典转为列表维持顺序
+            num_list = [num_dict[k] for k in ['sentiment', 'subjectivity', 'avg_url_len', 'avg_url_dots',
+                                              'has_at_symbol', 'has_ip_url', 'avg_subdomains', 'url_count']]
+            num_tensor = torch.tensor([num_list], dtype=torch.float).to(self.device)
+
+            with torch.no_grad():
+                outputs = self.bert_model(inputs['input_ids'], inputs['attention_mask'], num_tensor)
+                prob = torch.softmax(outputs, dim=1)[0][1].item()
+
+        print(f"\n--- [{mode} 引擎] 检测报告: {eml_path} ---")
         print(f"恶意概率得分: {prob:.2%}")
-        print(f"判定结果: {'【高风险】钓鱼邮件' if label == 1 else '【安全】正常邮件'}")
+        print(f"判定结果: {'【高风险】钓鱼邮件' if prob > 0.5 else '【安全】正常邮件'}")
+        return prob
 
-        if label == 1:
-            print("风险提示: 该邮件包含典型的钓鱼特征，请勿点击文中链接或输入个人信息。")
 
+# 3. 运行示例
 if __name__ == "__main__":
-    predictor = EMLPredictor('phishing_detector_final.pkl')
-    predictor.predict(r"D:\下载\AD_您有机会赢取丰厚大奖：奖品总价值_¥3,500,000.eml")
+    predictor = EMLPredictor(
+        pipeline_path='phishing_detector_final.pkl',  # 随机森林+TD-IDF
+        bert_path='phishing_bert_model.pth'  # BERT 权重
+    )
+
+    target_eml = r"D:\刘扬\钓鱼邮件检测\AD_您有机会赢取丰厚大奖：奖品总价值_¥3,500,000.eml"
+
+    predictor.predict(target_eml, mode="RF")
+    predictor.predict(target_eml, mode="BERT")
