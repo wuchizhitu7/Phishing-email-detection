@@ -1,103 +1,75 @@
-# Multi-Dimensional Phishing Email Detection System
-### 基于多维度特征工程的钓鱼邮件深度检测系统
+# A dual-engine detection system for phishing emails based on multi-dimensional feature engineering
+### 基于多维度特征工程的钓鱼邮件双引擎检测系统
 
-本项目提供了一个从原始邮件数据解析到实时恶意判定的全流程机器学习解决方案。通过对邮件正文进行 **NLP 语义分析** 以及对链接进行 **URL 结构词法分析**，系统能够有效识别各类复杂的钓鱼攻击。
-
----
-
-## 🌟 项目亮点
-
-- **深度特征挖掘**：不仅依赖简单的关键词匹配，还深入分析了 URL 的子域名深度、IP 隐写、点号密度等 8 维词法结构特征。
-- **消除特征泄露**：针对 Enron 与 Nazario 数据集存在的“特征泄露”（如 `received_count`）进行了主动剔除，确保模型学习的是钓鱼行为的本质逻辑，而非数据集本身的标签差异。
-- **多模态融合**：通过 `ColumnTransformer` 将 TF-IDF 文本向量化特征与手工构造的数值特征（语义情感、URL 复杂度）完美融合。
-- **全流程实战**：涵盖从原始 mbox 解析、数据清洗、特征提取、模型训练、5 折交叉验证到最终 `.eml` 文件推理的完整链路。
+这是一个基于机器学习与深度学习混合架构的自动化邮件安全检测平台。系统结合了传统的**随机森林 (Random Forest)** 特征工程方法与现代的**DistilBERT**语义分析技术，为用户提供多维度的风险评估。
 
 ---
 
-## 📂 文件说明
+# 🛡️ 钓鱼邮件 AI 多引擎检测系统
 
-| 文件名 | 功能描述 |
+## 🌟 核心特性
+
+* **双引擎架构**：支持在传统的随机森林流水线（TF-IDF + 专家特征）与先进的 BERT 融合模型之间一键切换。
+* **多维特征工程**：
+    * **语义分析**：通过 TextBlob 提取邮件的情感极性与主观性。
+    * **URL 审计**：自动扫描正文链接，计算平均长度、点号频率、子域名深度及 IP 格式检测。
+* **自动化流水线**：从 `.mbox` 原始数据清洗、HTML 去标签、特征提取到模型训练的全自动流程。
+* **交互式 UI**：基于 Gradio 构建，支持实时检测结论、恶意概率评分、可疑链接提取及系统一键关闭功能。
+
+---
+
+## 🏗️ 系统架构
+
+
+
+1.  **数据层** (`data_clean.py`)：处理邮件编码、递归解析多部分邮件，执行深度文本清洗。
+2.  **特征层** (`features_extractor.py`)：融合 NLP 特征与统计特征。
+3.  **模型层** (`RF.py`, `BERT.py`)：
+    * **RF 引擎**：结合 TF-IDF 关键词向量与数值特征。
+    * **BERT 引擎**：利用 DistilBERT 提取 768 维语义向量，并与数值特征在隐藏层进行拼接（Concatenation）。
+4.  **应用层** (`app_gradio.py`)：通过 `EMLPredictor` 类实现跨模型的高效推理。
+
+---
+
+## 📂 项目结构
+
+| 文件 | 说明 |
 | :--- | :--- |
-| `data_clean.py` | **数据清洗层**：解析 mbox 原始文件，处理 Unicode 及 HTML 乱码，提取 Header、Body 及原始 URL。 |
-| `features_extractor.py` | **特征工程层**：利用 `TextBlob` 进行情感分析，并对 URL 的词法结构进行多维度量化提取。 |
-| `model.py` | **模型训练层**：构建混合特征处理流水线，执行交叉验证，生成最终的随机森林 `.pkl` 模型。 |
-| `predict.py` | **推理应用层**：支持解析标准 `.eml` 邮件文件，自动完成特征对齐并给出实时恶意概率评分。 |
-| `app_gradio.py` | **系统可视化界面**：上传eml邮件，输出邮件的判定以及恶意概率，提取出邮件中的URL。 |
-| `enriched_emails_dataset.csv` | 包含所有手工提取特征及标签的结构化数据集，可直接用于模型复现。 |
-| `phishing_detector_final.pkl` | 经过训练且包含预处理逻辑（Pipeline）的持久化分类模型文件。 |
-
----
-
-## 🛠️ 技术栈
-
-- **数据处理**: `Pandas`, `NumPy`, `mailbox`
-- **可视化界面**：`Gradio`
-- **自然语言处理**: `TextBlob`, `BeautifulSoup4`, `Scikit-learn `
-- **机器学习**: `Scikit-learn (RandomForestClassifier, Pipeline, ColumnTransformer)`
-- **模型导出**: `Joblib`
-
----
-
-## 📊 实验表现
-
-在主动剔除高权重“泄露”特征并进行 5 折交叉验证后，模型表现极其稳健，证明了特征工程的有效性：
-
-- **平均准确率 (Accuracy)**: 99.06% (± 0.0022)
-- **F1-Score (恶意邮件)**: 0.99
-- **核心贡献特征 (Importance TOP 5)**:
-  1. `avg_url_len` (URL 平均长度)
-  2. `avg_subdomains` (子域名复杂度)
-  3. `avg_url_dots` (URL 点号密度)
-  4. `url_count` (链接总数)
-  5. `enron` (TF-IDF 识别出的商务场景词汇)
-
----
-
-
-## 📸 系统运行截图
-
-<img width="1720" height="762" alt="dee12152-55d4-4afc-81a5-926fcd906773" src="https://github.com/user-attachments/assets/cf466b04-13ae-4b39-ae6a-00c9799311a2" />
-图 1：基于 Gradio 搭建的交互式上传与分析界面
-
-<img width="1707" height="819" alt="49ea551c-80f5-4406-bf50-7109e5346e28" src="https://github.com/user-attachments/assets/39e851a1-2622-4098-9988-82048da951d4" />
-图 2：当恶意概率 > 70% 时，系统自动判定为高危并提取风险 URL
+| **`data_clean.py`** | 原始 `.mbox` 数据解析、HTML 剥离、控制字符过滤。 |
+| **`features_extractor.py`** | 提取专家特征（URL 统计、情感分析），生成增强型数据集。 |
+| **`RF.py`** | 随机森林流水线训练脚本，包含 TF-IDF 预处理器。 |
+| **`BERT.py`** | DistilBERT 混合模型定义（BERT + MLP）及训练逻辑。 |
+| **`predict.py`** | 统一预测封装类，负责加载模型、解析 `.eml` 并执行推理。 |
+| **`app_gradio.py`** | 可视化界面：包含双引擎切换、分析展示。 |
 
 ---
 
 ## 🚀 快速开始
 
-### 1. 环境准备
-
-确保您的 Python 环境已安装以下依赖库：
-
+### 1. 环境安装
+建议使用 Python 3.8+ 环境：
 ```bash
-pip install pandas numpy scikit-learn textblob beautifulsoup4 joblib
+pip install torch transformers scikit-learn pandas textblob beautifulsoup4 gradio joblib
 ```
 
-### 2. 数据处理与特征提取
+### 2. 数据准备与模型训练
+若需重新训练模型，请按顺序执行：
+1.  **特征提取**：生成训练所需的 `.csv` 文件。
+    ```bash
+    python features_extractor.py
+    ```
+2.  **训练 RF 引擎**：
+    ```bash
+    python RF.py
+    ```
+3.  **训练 BERT 引擎**：
+    ```bash
+    python BERT.py
+    ```
 
-若要从原始 mbox 文件重新生成数据集，请依次运行：
-
+### 3. 运行检测界面
 ```bash
-python data_clean.py          # 步骤1：清洗原始邮件并去重
-python features_extractor.py   # 步骤2：执行深度语义与 URL 特征提取
-```
-
-### 3. 训练与验证
-
-运行训练脚本以执行交叉验证、生成分类报告并保存模型：
-
-```bash
-python model.py
-```
-
-### 4. 实时预测 EML 邮件
-
-您可以直接对任何导出的 `.eml` 邮件进行检测：
-
-```bash
-python predict.py
-# 运行后按提示输入 EML 文件路径（如：test_sample.eml）
+python app_gradio.py
 ```
 
 ---
@@ -111,6 +83,34 @@ python predict.py
 
 ---
 
-**Author**: wuchizhitu7  
-**Project Date**: 2026
-```
+## 🛠️ 技术细节
+
+### 特征融合 (Feature Fusion)
+在 BERT 模型中，我们采用了 **混合输入架构**：
+* **文本流**：$`Text \xrightarrow{BERT} Vector_{768}`$
+* **数值流**：$`Stats_{8} \xrightarrow{Scaling} Features_{8}`$
+* **融合层**：$`Concatenate(Vector_{768}, Features_{8}) \xrightarrow{MLP} Output_{2}`$
+
+### 风险评估等级
+系统根据预测概率 $`P`$ 进行智能判定：
+* **安全 (Normal)**：$`P < 0.5`$
+* **中危 (Warning)**：$`0.5 \le P < 0.75`$
+* **高危 (High Risk)**：$`P \ge 0.75`$
+
+---
+
+## 📸 系统运行截图
+
+<img width="1784" height="653" alt="image" src="https://github.com/user-attachments/assets/fe25f59e-9672-4b88-99cd-a629e2ec89d4" />
+图 1：基于 Gradio 搭建的交互式上传与分析界面
+
+<img width="1736" height="853" alt="钓鱼邮件_RF" src="https://github.com/user-attachments/assets/db629e94-8fdf-4aff-81fa-69328925c07f" />
+图 2：RF引擎检测
+
+<img width="1736" height="847" alt="钓鱼邮件_BERT" src="https://github.com/user-attachments/assets/a1357376-21aa-43e4-88fe-39c333123751" />
+图 3：BERT引擎检测
+
+---
+
+
+
