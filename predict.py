@@ -105,39 +105,65 @@ class EMLPredictor:
             'url_count': url_feats[5]
         }
 
-    def predict(self, eml_path, mode="BERT"):
+    def _get_rf_prob(self, body, num_dict):
+        """RF 模型推理"""
+        input_data = {'body': body}
+        input_data.update(num_dict)
+        input_df = pd.DataFrame([input_data])
+        return self.rf_pipeline.predict_proba(input_df)[0][1]
+
+    def _get_bert_prob(self, body, num_dict):
+        """BERT 模型推理"""
+        tokens = self.tokenizer.tokenize(body)
+        if len(tokens) > 510:
+            tokens = tokens[:255] + tokens[-255:]
+
+        inputs = self.tokenizer.encode_plus(
+            tokens, is_split_into_words=True, add_special_tokens=True,
+            max_length=512, padding='max_length', truncation=True, return_tensors='pt'
+        ).to(self.device)
+
+        num_list = [num_dict[k] for k in ['sentiment', 'subjectivity', 'avg_url_len', 'avg_url_dots',
+                                          'has_at_symbol', 'has_ip_url', 'avg_subdomains', 'url_count']]
+        num_tensor = torch.tensor([num_list], dtype=torch.float).to(self.device)
+
+        with torch.no_grad():
+            outputs = self.bert_model(inputs['input_ids'], inputs['attention_mask'], num_tensor)
+            prob = torch.softmax(outputs, dim=1)[0][1].item()
+        return prob
+
+    def predict(self, eml_path, mode="BERT", rf_weight=0.4, bert_weight=0.6):
+        """
+        mode 支持三种模式：
+            "RF"       → 仅随机森林
+            "BERT"     → 仅 DistilBERT
+            "ENSEMBLE" → 加权融合
+        """
         body, urls = self._extract_eml_content(eml_path)
         num_dict = self._get_numeric_dict(body, urls)
 
         if mode == "RF":
-            # 1. 构造与训练时完全一致的 DataFrame
-            input_data = {'body': body}
-            input_data.update(num_dict)
-            input_df = pd.DataFrame([input_data])
+            prob = self._get_rf_prob(body, num_dict)
+            mode_name = "RF"
+        elif mode == "BERT":
+            prob = self._get_bert_prob(body, num_dict)
+            mode_name = "BERT"
+        elif mode == "ENSEMBLE":
+            rf_prob = self._get_rf_prob(body, num_dict)
+            bert_prob = self._get_bert_prob(body, num_dict)
+            prob = rf_weight * rf_prob + bert_weight * bert_prob
 
-            # 2. 直接调用 pipeline 推理
-            prob = self.rf_pipeline.predict_proba(input_df)[0][1]
-
+            print(f"\n--- [ENSEMBLE 引擎] 检测报告: {eml_path} ---")
+            print(f"RF   恶意概率: {rf_prob:.2%}")
+            print(f"BERT 恶意概率: {bert_prob:.2%}")
+            print(f"Ensemble 恶意概率: {prob:.2%}")
+            print(f"判定结果: {'【高风险】钓鱼邮件' if prob > 0.5 else '【安全】正常邮件'}")
+            return prob
         else:
-            tokens = self.tokenizer.tokenize(body)
-            if len(tokens) > 510:
-                tokens = tokens[:255] + tokens[-255:]
+            raise ValueError("mode 必须是 'RF'、'BERT' 或 'ENSEMBLE'")
 
-            inputs = self.tokenizer.encode_plus(
-                tokens, is_split_into_words=True, add_special_tokens=True,
-                max_length=512, padding='max_length', truncation=True, return_tensors='pt'
-            ).to(self.device)
-
-            # 将字典转为列表维持顺序
-            num_list = [num_dict[k] for k in ['sentiment', 'subjectivity', 'avg_url_len', 'avg_url_dots',
-                                              'has_at_symbol', 'has_ip_url', 'avg_subdomains', 'url_count']]
-            num_tensor = torch.tensor([num_list], dtype=torch.float).to(self.device)
-
-            with torch.no_grad():
-                outputs = self.bert_model(inputs['input_ids'], inputs['attention_mask'], num_tensor)
-                prob = torch.softmax(outputs, dim=1)[0][1].item()
-
-        print(f"\n--- [{mode} 引擎] 检测报告: {eml_path} ---")
+        # 单模型统一报告
+        print(f"\n--- [{mode_name} 引擎] 检测报告: {eml_path} ---")
         print(f"恶意概率得分: {prob:.2%}")
         print(f"判定结果: {'【高风险】钓鱼邮件' if prob > 0.5 else '【安全】正常邮件'}")
         return prob
@@ -150,7 +176,11 @@ if __name__ == "__main__":
         bert_path='phishing_bert_model.pth'  # BERT 权重
     )
 
-    target_eml = r"D:\刘扬\钓鱼邮件检测\AD_您有机会赢取丰厚大奖：奖品总价值_¥3,500,000.eml"
+    target_eml = "test.eml"
 
+    print("=" * 60)
     predictor.predict(target_eml, mode="RF")
+    print("=" * 60)
     predictor.predict(target_eml, mode="BERT")
+    print("=" * 60)
+    predictor.predict(target_eml, mode="ENSEMBLE", rf_weight=0.4, bert_weight=0.6)
