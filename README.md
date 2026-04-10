@@ -10,6 +10,7 @@
 ## 🌟 核心特性
 
 * **双引擎架构**：支持在传统的随机森林流水线（TF-IDF + 专家特征）与先进的 BERT 融合模型之间一键切换。
+* **集成检测**：平衡RF对URL结构特征效果好而对语义不敏感的问题。
 * **多维特征工程**：
     * **语义分析**：通过 TextBlob 提取邮件的情感极性与主观性。
     * **URL 审计**：自动扫描正文链接，计算平均长度、点号频率、子域名深度及 IP 格式检测。
@@ -19,7 +20,6 @@
 ---
 
 ## 🏗️ 系统架构
-
 
 
 1.  **数据层** (`data_clean.py`)：处理邮件编码、递归解析多部分邮件，执行深度文本清洗。
@@ -40,7 +40,7 @@
 | **`RF.py`** | 随机森林流水线训练脚本，包含 TF-IDF 预处理器。 |
 | **`BERT.py`** | DistilBERT 混合模型定义（BERT + MLP）及训练逻辑。 |
 | **`predict.py`** | 统一预测封装类，负责加载模型、解析 `.eml` 并执行推理。 |
-| **`app_gradio.py`** | 可视化界面：包含双引擎切换、分析展示。 |
+| **`app_gradio.py`** | 可视化界面：包含双引擎切换、集成检测、分析展示。 |
 
 ---
 
@@ -113,14 +113,17 @@ python app_gradio.py
 
 ## 📸 系统运行截图
 
-<img width="1784" height="653" alt="image" src="https://github.com/user-attachments/assets/fe25f59e-9672-4b88-99cd-a629e2ec89d4" />
+<img width="1803" height="642" alt="界面" src="https://github.com/user-attachments/assets/bce5e9dc-5582-48bf-8add-95b9260eb33c" />
 图 1：基于 Gradio 搭建的交互式上传与分析界面
 
-<img width="1736" height="853" alt="钓鱼邮件_RF" src="https://github.com/user-attachments/assets/db629e94-8fdf-4aff-81fa-69328925c07f" />
+<img width="1761" height="806" alt="RF" src="https://github.com/user-attachments/assets/b9f92295-fc3f-434a-bec1-d67eea3ff8cb" />
 图 2：RF引擎检测
 
-<img width="1736" height="847" alt="钓鱼邮件_BERT" src="https://github.com/user-attachments/assets/a1357376-21aa-43e4-88fe-39c333123751" />
+<img width="1722" height="808" alt="BERT" src="https://github.com/user-attachments/assets/2335fe1b-a482-440f-91fb-54d8c0401157" />
 图 3：BERT引擎检测
+
+<img width="1736" height="804" alt="集成" src="https://github.com/user-attachments/assets/7fefa6cd-a186-4d8e-9d30-31866e493ea0" />
+图 4：集成检测
 
 ---
 
