@@ -41,6 +41,9 @@
 | **`BERT.py`** | DistilBERT 混合模型定义（BERT + MLP）及训练逻辑。 |
 | **`predict.py`** | 统一预测封装类，负责加载模型、解析 `.eml` 并执行推理。 |
 | **`app_gradio.py`** | 可视化界面：包含双引擎切换、集成检测、分析展示。 |
+| **`phishing_detector_final.pkl`** | 存储随机森林分类器判定钓鱼邮件的所有逻辑规则与文本特征权重。 |
+| **`numeric_features_list.pkl`** | 记录模型输入特征的精确顺序，确保预测时提取的数值数据能被模型正确识别。 |
+| **`phishing_bert_model.pth`** | 训练好的 DistilBERT 权重，存储了模型对文本语义理解的深层规律。 |
 
 ---
 
