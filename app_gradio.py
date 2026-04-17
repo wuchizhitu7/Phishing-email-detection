@@ -17,7 +17,6 @@ def process_email(file, engine_mode):
         return "请先上传邮件文件", "0%", "无"
 
     try:
-        # 映射 UI 选项到代码内部模式
         mode_map = {
             "机器学习引擎": "RF",
             "深度学习引擎": "BERT",
