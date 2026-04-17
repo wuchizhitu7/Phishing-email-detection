@@ -7,7 +7,7 @@ from torch.optim import AdamW
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
-# --- 1. 参数配置 ---
+# 1. 参数配置
 DEVICE = torch.cuda.is_available() and "cuda" or "cpu"
 MODEL_NAME = "distilbert"
 MAX_LEN = 512  # BERT 最大长度
@@ -16,7 +16,7 @@ EPOCHS = 3
 LR = 2e-5
 
 
-# --- 2. 自定义数据集类 ---
+# 2. 自定义数据集类
 class EmailDataset(Dataset):
     def __init__(self, texts, numeric_feats, labels, tokenizer):
         self.texts = texts
@@ -48,16 +48,16 @@ class EmailDataset(Dataset):
         }
 
 
-# --- 3. 混合模型架构 (BERT + MLP) ---
+# 3. 混合模型架构 BERT + MLP
 class PhishingBertModel(nn.Module):
     def __init__(self, n_numeric_feats):
         super(PhishingBertModel, self).__init__()
         self.bert = AutoModel.from_pretrained(MODEL_NAME)
-        # 冻结 BERT 前几层（可选，为了在 CPU 上训练更快）
+        # 冻结 BERT 前几层
         for param in self.bert.parameters(): param.requires_grad = False
 
         self.dropout = nn.Dropout(0.3)
-        # 融合层：BERT 的 768 维 + 你的 8 维数值特征
+        # 融合层
         self.classifier = nn.Sequential(
             nn.Linear(768 + n_numeric_feats, 256),
             nn.ReLU(),
@@ -70,12 +70,12 @@ class PhishingBertModel(nn.Module):
         pooled_output = outputs.last_hidden_state[:, 0, :]
         pooled_output = self.dropout(pooled_output)
 
-        # 特征拼接 (Feature Fusion)
+        # 特征拼接
         combined = torch.cat((pooled_output, numeric_feats), dim=1)
         return self.classifier(combined)
 
 
-# --- 4. 训练逻辑 ---
+# 4. 训练逻辑
 def train_model():
     # 加载数据
     df = pd.read_csv("enriched_emails_dataset.csv")
@@ -110,7 +110,7 @@ def train_model():
             total_loss += loss.item()
         print(f"Epoch {epoch + 1}/{EPOCHS}, Loss: {total_loss / len(train_loader):.4f}")
 
-    # 保存模型状态
+    # 保存模型
     torch.save(model.state_dict(), 'phishing_bert_model.pth')
     print("模型已保存！")
 
