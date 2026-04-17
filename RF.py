@@ -41,7 +41,7 @@ print("正在进行交叉验证...")
 cv_scores = cross_val_score(pipeline, X, y, cv=5)
 print(f"5折交叉验证平均得分: {cv_scores.mean():.4f} (+/- {cv_scores.std():.4f})")
 
-# 7. 训练模型并查看详细报告
+# 7. 训练模型
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 pipeline.fit(X_train, y_train)
 y_pred = pipeline.predict(X_test)
@@ -59,7 +59,7 @@ importance_df = pd.DataFrame({'feature': all_feature_names, 'importance': import
 print("\n--- 贡献度前 10 的特征 ---")
 print(importance_df.sort_values(by='importance', ascending=False).head(10))
 
-# 保存模型文件
+# 保存模型
 model_filename = 'phishing_detector_final.pkl'
 joblib.dump(pipeline, model_filename)
 
