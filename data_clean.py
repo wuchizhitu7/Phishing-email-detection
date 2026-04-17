@@ -55,7 +55,7 @@ class EmailProcessor:
         processed_emails = []
 
         for message in mbox:
-            # --- 维度 1: Header 处理 ---
+            # Header 处理
             header_info = {
                 "subject": str(message['Subject']).strip() if message['Subject'] else "Unknown",
                 "from": str(message['From']).strip() if message['From'] else "Unknown",
@@ -64,11 +64,11 @@ class EmailProcessor:
                 "received_count": len(message.get_all('Received') or [])
             }
 
-            # --- 维度 2: Body 处理 ---
+            # Body 处理
             raw_body = self._get_raw_body(message)
             clean_body = self._ultra_clean_text(raw_body)
 
-            # --- 维度 3: URL 处理 ---
+            # URL 处理
             urls = self._extract_urls(raw_body)
 
             # 整合数据
@@ -87,7 +87,6 @@ class EmailProcessor:
 
 
 def get_cleaned_dataframe():
-    """封装解析逻辑，供外部调用"""
     processor = EmailProcessor()
 
     normal_data = processor.process_mbox("emails-enron.mbox", label=0)
