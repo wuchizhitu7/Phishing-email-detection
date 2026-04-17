@@ -12,9 +12,9 @@ class DeepFeatureExtractor:
     def analyze_text_semantics(self, text):
         """分析正文语义特征"""
         blob = TextBlob(str(text))
-        # 1. 情感极性：钓鱼邮件往往情绪波动较大
+        # 1. 情感性
         sentiment = blob.sentiment.polarity
-        # 2. 主观性：钓鱼邮件通常较为主观
+        # 2. 主观性
         subjectivity = blob.sentiment.subjectivity
         return sentiment, subjectivity
 
@@ -70,6 +70,6 @@ if __name__ == "__main__":
     feature_cols = ['avg_url_len', 'avg_url_dots', 'has_at_symbol', 'has_ip_url', 'avg_subdomains', 'url_count_check']
     df[feature_cols] = pd.DataFrame(url_features.tolist(), index=df.index)
 
-    # 5. 保存带有深度特征的新数据集
+    # 5. 保存带有深度特征的数据集
     df.to_csv("enriched_emails_dataset.csv", index=False)
     print("深度特征提取完成！结果已保存至 enriched_emails_dataset.csv")
