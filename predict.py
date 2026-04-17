@@ -162,7 +162,6 @@ class EMLPredictor:
         else:
             raise ValueError("mode 必须是 'RF'、'BERT' 或 'ENSEMBLE'")
 
-        # 单模型统一报告
         print(f"\n--- [{mode_name} 引擎] 检测报告: {eml_path} ---")
         print(f"恶意概率得分: {prob:.2%}")
         print(f"判定结果: {'【高风险】钓鱼邮件' if prob > 0.5 else '【安全】正常邮件'}")
@@ -172,7 +171,7 @@ class EMLPredictor:
 # 3. 运行示例
 if __name__ == "__main__":
     predictor = EMLPredictor(
-        pipeline_path='phishing_detector_final.pkl',  # 随机森林+TD-IDF
+        pipeline_path='phishing_detector_final.pkl',  # 随机森林+TF
         bert_path='phishing_bert_model.pth'  # BERT 权重
     )
 
