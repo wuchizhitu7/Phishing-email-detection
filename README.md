@@ -154,7 +154,7 @@ python predict.py
 <img width="1786" height="641" alt="image" src="https://github.com/user-attachments/assets/44130b71-27e8-47ff-a45f-3856dc8effa4" />
 <img width="1853" height="596" alt="image" src="https://github.com/user-attachments/assets/02c503b6-2076-45d9-806a-30f02e4f15ef" />
 
-下图是对人类编写的钓鱼邮件的检测情况：
+下图是对人为编写的钓鱼邮件的检测情况：
 <img width="1798" height="813" alt="image" src="https://github.com/user-attachments/assets/78b5f40d-48a0-439a-9089-bc460bba2a62" />
 <img width="1712" height="717" alt="image" src="https://github.com/user-attachments/assets/e422f9d8-678a-4046-a931-4db89abcf720" />
 <img width="1790" height="722" alt="image" src="https://github.com/user-attachments/assets/ce33bb73-a77c-4dca-a43c-54193b9223f1" />
