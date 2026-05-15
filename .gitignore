@@ -1,0 +1,23 @@
+# Model weights (too large for GitHub)
+*.pth
+*.pkl
+*.bin
+
+# Data directories (too large)
+data_trec06c/
+chifraud_data/
+data/
+bert-base-chinese/
+
+# Generated CSVs
+enriched_emails_dataset.csv
+ai_phishing_emails.csv
+ai_phishing_test.csv
+ablation_results.csv
+chifraud_emails.csv
+
+# Python cache
+__pycache__/
+
+# IDE
+.vscode/

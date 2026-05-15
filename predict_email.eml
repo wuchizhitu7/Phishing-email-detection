@@ -1,0 +1,1518 @@
+Received: from r8.customermail.microsoft.com (r8.customermail.microsoft.com [172.82.208.8])
+	by newxmmxszgpub4-0.qq.com (NewMX) with SMTP id 29D0EE50
+	for <570538697@qq.com>; Fri, 20 Mar 2026 10:10:29 +0800
+X-QQ-mid: xmmxpub4-0t1773972633tc52q05dx
+Sender: bounce@customermail.microsoft.com
+X-QQ-CSender: bounce@customermail.microsoft.com
+X-QQ-XMAILINFO: NUQ19PnAmVScTXu1YjD43ETxu8m4Fj27wc+eDBc+wEwbimV/JBgD/ZWTrMoLOL
+	 GFmSp+qlsQZu8mHkyMyaCsXbWgZgXrRAOjSymbcIQPD0o40b4qZBswXIT3lETpaYWDUYlPdn5mDc
+	 c0p9gN9eSHLH8WJveYYWeEHpoNkGvsVWjVpiwQmefwBRwgbPnnlW0oYHqS1zvxR2Lm+FDNGVVPw9
+	 uZnjtzMDh6c+EzkxYyTVWYaQ2hnMZIlVWBI496vScQSfQdLOGEF1EAG2k1XGqDDeFiSzBKXOEnl+
+	 VqAoHtiuVz8c7LIpNFycrvbqUh5MiH/T3EDevl61alaCvztaG0w21Ail9wZ6s1/v33ccxDP5GWa/
+	 NC/f6jxn+aN30RNgQNPNYACP4W+U0zYDKPW9Tet53FR4W6oeqWf9RFGogBjE+fSZSJgmEWF18tpB
+	 8m4nh0Rx0pr/Q9fwrZZ13WjQNx0L9ywBPkLR+CaPQMYFKD5+V3MwpsW2/KPuLjRJu0fWFMud0yXa
+	 /SgIEE4lJ0s1+jIAo0ZZHYRuqYCNIpjTfKsmuqIzgt8Fb+RoH6hLU3xBhFzh7BU4y1ZEKYCnIWly
+	 WoIY3V9tlngX9Ot4GTty9thN2QvB0JEz+vVAdxIPWYVtTTe319eQnksxrEDiUNbVW+D/WrQMWCv3
+	 Vn+8m+MhfNMNoHRV4/K+Qwd84MO8uRZInQiMQTXNiUiPRYPm3yzwv2vGkGXorCzYF2JO297PedVv
+	 7mnEageancfRrZoijiwKiKS8FqEJfgLT+0ogtLD5+3jsySoYH2SsdHG0MHjJwJk9MiN4UyU+prCH
+	 2KOi/sNC1vUhc+j40Dvi+alpr1295yo+rOfpWbenpeEnVN/xoh7JL+AFdVsgN/bYRn6ue7Lj5YiK
+	 Jq8iT6VGBG1Hl5KZGrRxS7kHBxt5f3aonN3JdLYlqgfb4QeLzT/OflVzLNIiRe4L6bz/Kpqfk0EL
+	 XagVofCxLKgcYdMEQZ2os5S5fxoJ2FqdfPG7Cqqyu9Zqw+hVSzeAHa2IxHogUOThh+csTdE0nb/N
+	 m3555X9aVXdfzkJ8+mtjJad1lcQi3o1nQcPsbZ5ZAKBWkXECt4Z6Bb7iM4VaRWISJgOsY13jwpx2
+	 NXQ20d15bVSw/Pge3pojjLc/GKlJZgmZedLe9AY3NQNatGv3PlATJhnzoodAxjasVAhabFEfu09q
+	 15D+HBtR/bPHI0U81LRifHuVuTZxQ3ITzCrvzqCYYlzRrXCMNqsOREcELe8qRVOF8E01EgW/K10n
+	 004hdjwMXP9u6PVeuoIQrv1LKGa9IFKWRNC4ct3G79Y9CiZvriaKsCqZ+si2k0JGxp+bgFgZM6GK
+	 daMh6BtFKGPvr2gUpWaLBpBrc7cs87GUTfbB6rZpB6VHJ6Hqas3kzyYiO6Z5KHAG8PyCcyQzDgs1
+	 0Ke+GTmeWRiHqvrCLh1AI9wW/f6VJcxLf7TAZcwpBc6rH1B3Kpgo20lj2faIZ145rlBDnsCgzJvw
+	 lHHhr3N35zCtdDZ+W+AxJhLyKmBOBNuq7llhxBP7mB
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+Authentication-Results: mx.qq.com; spf=pass(172.82.208.8) smtp.mailfrom=<bounc
+	 e@customermail.microsoft.com>; dkim=pass(signature was verified) header.d=cu
+	 stomermail.microsoft.com; dmarc=pass(p=NONE sp=NONE pct=100) header.from=cus
+	 tomermail.microsoft.com
+Return-Path: <bounce@customermail.microsoft.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=customermail.microsoft.com; s=mscom; t=1773961795;
+	bh=mdI0mECMEStfMhL0DKKDvRqgOcZCSwt1AWe+Emo10m8=;
+	h=From:Date:Subject:To:MIME-Version:Message-ID:List-Unsubscribe:
+	 List-Unsubscribe-Post:Content-Type;
+	b=2EVd7xYd0JM08eTvwbxmZDkogeq/Qrs/Af6um8oraJwbe2jNLfFe4X7elmY4pHSJK
+	 HKIeY1EnclA61WOR7qKtfgX3Dc4BVP7r+RCnic+4yIeMtBju6g23iPw3mCCL6PSrsZ
+	 mpBDPOd0JTkVo2TxdR8TxTwXC9tOQLdxe2JfASLGy/Cmjfgsg9yX6s5JP2bJjvawZA
+	 EsOJujqUIwEhUPNAsiaa9JRA57iOjfwrEfHbH6+3WfRwX6HHl+ow2PqdK/tmFG2D5n
+	 yVkOqZVIGn6GaAi8OOrJE3MftFKEDgUzumAaas6IKbo6yqq5N0N8eC6Jx5dwvMMrvj
+	 0q8WLP7Iz1o3Q==
+X-MSFBL: /EL5+5ZeBZO9RTfZvNPuKEelT4e56zMsGU+ncb7Mt14=|eyJyIjoiNTcwNTM4Njk
+	3QHFxLmNvbSIsInJjcHRfbWV0YSI6eyAiaW4iOiAibXNjb21fbWt0X3Byb2Q3OSI
+	sICJyIjogIjU3MDUzODY5N0BxcS5jb20iLCAibSI6ICI1ODM1MjUzNTk1IiwgImQ
+	iOiAiNDQ5MjI3MyIsICJpIjogIkVBNzZBREU5NTc3NkQyRUM3RjAwMDEwMUBBZG9
+	iZU9yZyIgfSwiZyI6ImJhdGNodHJpZ2dlcm1hcmtldGluZ181ZDMwMDMxYS0zMjI
+	zLTQ1YzEtYjZmMy0xNTc4NzAwNmZkMjAiLCJiIjoibXNjb21fMTcyLjgyLjIwOC4
+	4X2JhdGNodHJpZ2dlcm1hcmtldGluZ181ZDMwMDMxYS0zMjIzLTQ1YzEtYjZmMy0
+	xNTc4NzAwNmZkMjAifQ==
+Received: from [10.1.1.12] ([10.1.1.12:37477] helo=r12.customermail.microsoft.com) by or2-prod1-mta-i-057d7d45e759fa6cb (envelope-from <bounce@customermail.microsoft.com>) (ecelerity 4.4.1.20033 r(msys-ecelerity:tags/4.4.1.0^0)) with ESMTP id CC/16-01275-2428CB96; Thu, 19 Mar 2026 23:09:55 +0000
+From: "Microsoft Rewards" <MicrosoftRewards@customermail.microsoft.com>
+Date: Thu, 19 Mar 2026 16:09:11 -0700
+Subject: =?utf-8?B?QUQg5oKo5pyJ5py65Lya6LWi5Y+W5Liw5Y6a5aSn5aWW77ya?=
+ =?utf-8?B?5aWW5ZOB5oC75Lu35YC8IMKlMyw1MDAsMDAw?=
+To: <570538697@qq.com>
+Reply-To: "noreply" <replies@microsoft.com>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 7.0.0.10714
+Message-ID: <AC7000000015BCEE75B00448BF1mscom_mkt_prod79@customermail.microsoft.com>
+List-Unsubscribe: https://account.microsoft.com/profile/unsubscribe?CTID=0&ECID=2tI0lgXEA_M7DRJhAslavm4U6cJPWKdkpl_loUcZ7b4&K=dc01e41f-886e-441c-9da2-477fd37ac4f6&D=639094701326222004&PID=18015&TID=0b8f6b28-d47a-4951-916e-e85a011d8a69&CMID=Iris-Microsoft%20Rewards-575074255
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<!DOCTYPE HTML>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D"urn:schemas-microso=
+ft-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:vml" dir=3D"ltr"=
+ lang=3D"zh-cn">
+    <head>
+
+    <!--[if gte mso 9]>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+
+    <meta http-equiv=3D"content-type" content=3D"text/html; charset=3DUTF-8=
+"/>
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"/>
+    <meta name=3D"HandheldFriendly" content=3D"true"/>
+    <meta name=3D"x-apple-disable-message-reformatting"/>
+    <!-- Use page properties directly, no head.js required -->
+=09<title>AD=E6=82=A8=E6=9C=89=E6=9C=BA=E4=BC=9A=E8=B5=A2=E5=8F=96=E4=B8=B0=
+=E5=8E=9A=E5=A4=A7=E5=A5=96=EF=BC=9A=E5=A5=96=E5=93=81=E6=80=BB=E4=BB=B7=E5=
+=80=BC =C2=A53,500,000</title>
+    <meta name=3D"content-page-ref" content=3D"QN_nz7V1lVdBvjSbbRlAFNhH4Kml=
+cqNrkQu492uJ4nJ7ymozNfCWmFckQzTFiuSkOLVg0r_PDjawPk_ekYS8HF-WmYKufw5xA9sIbvp=
+Gt7vo3PRAsT084_gsbHTZcvEixobdyktB_Ke_gWouU5NkZdMKpSUHSC29pU0w0gp7y6M"/>
+<link rel=3D"canonical" href=3D"/content/campaigns/rewards-consumer/zh-cn/a=
+do169723_q3_sweeps-promo-annouce_rewards/Winner_IW-only-SL4.html"/>
+    <meta name=3D"description" content=3D"=E4=BB=85=E9=99=90=E5=8D=B3=E6=97=
+=B6=E8=B5=A2=E5=A5=96"/>
+=09<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0"/>
+
+=09<meta name=3D"format-detection" content=3D"telephone=3Dno"/>
+    <meta name=3D"format-detection" content=3D"date=3Dno"/>
+    <meta name=3D"format-detection" content=3D"address=3Dno"/>
+    <meta name=3D"format-detection" content=3D"email=3Dno"/>
+
+    
+
+    
+    
+        
+    
+
+
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    <style media=3D"all" type=3D"text/css">
+    =09@-ms-viewport { width: device-width;}
+    </style>
+    <style type=3D"text/css">
+    =09 sup{line-height: 0;}
+    =09.xf-content-height { margin:0 !important; }
+=09=09.xf-content-height .newpar { margin: 0; height: 100% !important; }
+=09=09.desktop-block { display:block; }
+=09    .rtl-template,  .rtl-template td { direction: rtl !important; text-a=
+lign: right !important; }
+=09=09.rtl-template .text-rtl-center td, .rtl-template .hero-text-center{te=
+xt-align:center !important}
+=09=09.rtl-template .btn-rtl th { direction: rtl !important; }
+        .rtl-template ul { margin: 0 !important; padding-right: 22px !impor=
+tant;text-align: right !important;direction: rtl !important; }
+        .rtl-template ol { margin-top: 0 !important;margin-bottom:0 !import=
+ant; padding-right: 22px !important;text-align: right !important;}
+        .rtl-template .social-icons { padding-left: 12px !important; paddin=
+g-right: 0 !important; }
+        .rtl-template .text-align-right th { text-align: right !important;p=
+adding-right:0px !important; padding-left:3px !important; }
+=09=09.rtl-template .txt-align-right, .rtl-template .block-text-align-right=
+ {text-align: right !important;}
+=09=09.rtl-template li { padding: 0 12px 8px 0 !important; }
+=09=09.rtl-template .rating-thumbs-up { padding-left: 30px; padding-right: =
+0; }
+=09=09.rtl-template .reward-tile-card {padding-left: 20px; padding-right: 0=
+; }
+        .rtl-template .ribbon-cta .block-max-width {text-align: left !impor=
+tant;}
+=09=09.rtl-template .block-max-width, .rtl-template .btn-block-right {text-=
+align: right !important;}
+=09=09.rtl-template .block-max-width-center {text-align: center !important;=
+}
+=09=09u+.rtl-template a { color:#0067B8 !important; }
+=09=09.rtl-template .table-ruler td, .rtl-template .table-ruler th, .rtl-te=
+mplate .table-zebra td, .rtl-template .table-zebra th,
+=09=09.rtl-template .table-hr-icon td, .rtl-template .table-zebra-icon td {=
+ padding: 20px 20px 20px 0 !important;=09text-align: right !important; }
+=09=09.rtl-template .table-ruler-mobile th, .rtl-template .table-zebra-mobi=
+le th { text-align: right !important; =09}
+=09=09.rtl-template .text-rtl-center td {text-align: center !important;}
+    =09.rtl-template .text-rtl-center {display:block; margin:0 auto;}
+=09=09.email-table .text-center p,.email-table .text-center td {text-align:=
+center !important;}
+        .email-table .text-center img {Margin:0 auto;margin:0 auto;}
+        .email-table .text-left p,.email-table .text-left td {text-align:le=
+ft !important;}
+        .email-table .text-right p,.email-table .text-right td {text-align:=
+right !important;}
+        .rtl-template .email-table .text-center p,.rtl-template .email-tabl=
+e .text-center td {direction: rtl !important;text-align: center !important;=
+}
+=09=09.rtl-template .btn-rtl th {direction: rtl !important;}
+=09=09.rtl-template .tile-headline, .rtl-template .tile-paragraph { padding=
+: 0 20px 0 20px;}
+=09=09.rtl-template .small-tile-image { padding: 20px 20px 0px 20px;}
+=09=09.rtl-template .tile-button { padding: 0 20px 20px 20px; }
+=09=09.rtl-template .padd-left-right-40 { padding: 0 40px 0 40px !important=
+;}
+=09=09.rtl-template .padd-left-20 { padding-left: 20px !important; padding-=
+right: 0 !important;}
+=09=09.rtl-template .intro-tile-image {padding:10px 10px 10px 20px}
+=09=09.rtl-template .intro-tile-text {padding:0 0 0 10px}
+        .rtl-template .image-tile-10 { padding:10px 10px 0px 0px !important=
+;}
+        .rtl-template .image-tile-20 {padding: 20px 20px 0px 0px !important=
+;}
+        .footer-address-center td,.footer-address-center td p,.footer-addre=
+ss-center td p a{text-align:center !important;direction:ltr !important;}
+=09=09 table.groupthree a {text-decoration: underline !important;}
+=09=09.txt-center ul li, .txt-center ol li{text-align: center !important; l=
+ist-style-position: inside;}
+         body {margin:0;padding:0;}
+         table td {border-collapse:collapse;margin:0;padding:0;}
+         table td p {margin:0;padding:0;}
+=09=09 table td p a {color:#0067B8;text-decoration:underline;font-weight: n=
+ormal;}
+=09=09 table th {font-weight: normal !important;}
+         .desktopHidden, .desktop-hidden, .table-ruler-mobile, .table-zebra=
+-mobile {display: none !important;}
+         .gutter {padding:0 30px;}
+=09=09 .tile-pad-large-4 {padding-left: 50px !important; padding-right: 50p=
+x !important;}
+         .tile-pad-large {padding-left: 30px !important; padding-right: 30p=
+x !important;}
+         .tile-pad-small-v1 {padding-left: 50px !important; padding-right: =
+50px !important;}
+         .tile-pad-small-v2 {padding-left: 84px !important; padding-right: =
+84px !important;}
+         .tile-pad-small-v3 {padding-left: 119px !important; padding-right:=
+ 119px !important;}
+         .tile-pad-small-v5 {padding-left: 154px !important; padding-right:=
+ 154px !important;}
+=09=09 .padd-left-right-40 { padding:0 40px 0 40px !important;}
+=09=09 .padd-left-right-20 { padding:0 20px 0 20px !important;}
+=09=09 .padd-left-right-10 { padding:0 10px 0 10px !important;}
+=09=09 .padd-left-right-28 { padding:0 28px 0 28px !important;}
+=09=09 .padd-right-26 { padding:0 26px 0 0 !important;}
+=09=09 .padd-left-26 { padding:0 0 0 26px !important;}
+=09=09 .tile-small-box .btn-block {vertical-align:top}
+=09=09 .tile-image {padding: 10px 20px 10px 10px;}
+=09=09 .reward-tile-card {padding-right: 20px;}
+         .lg-tile-image, .lg-tile-headline, .lg-tile-paragraph, .lg-tile-bu=
+tton {padding: 0 40px 0 40px;}
+         .tile-headline, .tile-paragraph { padding: 0 20px 0 20px;}
+         .small-tile-image { padding: 20px 20px 0px 20px;}
+         .tile-button { padding: 0 20px 20px 20px;}
+         .tile-txt-small {font-family: 'Segoe=C2=A0UI', Helvetica, Arial, s=
+ans-serif; font-size: 12px; font-style: normal; color: #505050; line-height=
+: 16px; letter-spacing: -0.01em; text-align: center; padding-left: 5px; pad=
+ding-right: 5px; word-wrap: break-word; word-break: break-all;}
+         .tile-txt-large {font-family: 'Segoe UI', Helvetica, Arial, sans-s=
+erif; font-size: 14px; font-style: normal; color: #505050; line-height: 20p=
+x; letter-spacing: -0.01em; text-align: center; padding-left: 10px; padding=
+-right: 10px; word-wrap: break-word; word-break: break-all;}
+         .boxed-list-wrapper {padding: 20px 30px 0;}
+=09=09 .block-padd-top-30 {padding-top: 0px;}
+=09=09 .rating-thumbs-up {padding-right: 30px;}
+=09=09 .text-card-padding {padding: 0 80px 0px 80px;}
+         .rte-spacer-20 p,.rte-spacer-20 ul,.rte-spacer-20 ol {padding-bott=
+om: 20px !important;}
+=09=09 .rte-spacer-10 p,.rte-spacer-10 ul,.rte-spacer-10 ol {padding-bottom=
+: 10px !important;}
+         .rte-footerspacer-10 p,.rte-footerspacer-10 ul,.rte-footerspacer-1=
+0 ol {padding-top: 10px !important;}
+=09=09 .semibold{font-weight:600;}
+=09=09 .strikethrough { text-decoration: line-through;}
+=09=09 .spacer-ln-ht-0 {line-height: 0px;font-size: 0px;}
+=09=09 .table-ruler-mobile td, .table-ruler-mobile th, .table-zebra-mobile =
+td, .table-zebra-mobile th, .table-hr-icon td, .table-zebra-icon td {
+      =09=09height: 30px !important; padding: 20px 0 20px 20px !important; =
+text-align: left !important;=09word-wrap: break-word !important;=09overflow=
+-wrap: break-word !important; }
+=09=09 .table-ruler th, .table-ruler td { height: 30px !important;=09paddin=
+g: 20px 0 20px 20px !important; text-align: left !important; word-wrap: bre=
+ak-word !important; overflow-wrap: break-word !important; }
+=09=09 .table-zebra th, .table-zebra td { height: 30px !important;=09paddin=
+g: 20px 0 20px 20px !important; text-align: left !important; word-wrap: bre=
+ak-word !important; overflow-wrap: break-word !important; }
+         .table-ruler th, .table-ruler td, .table-ruler-mobile th, .table-r=
+uler-mobile td, .table-hr-icon td {
+         border-bottom: 1px solid #E0E0E0 !important;}
+         .table-zebra-mobile th, .table-zebra-mobile td {border-bottom : 1p=
+x solid #ffffff !important;}
+         .table-ruler-mobile, .table-hr-icon {border-top: 1px solid #E0E0E0=
+;}
+         .table-ruler-mobile th, .table-zebra-mobile th {font-weight: 600 !=
+important;}
+         .table-zebra-icon .odd-row td, .table-zebra .odd-row td, .table-ze=
+bra-mobile .odd-row td {background-color: #F6F6F6;}
+         .table-zebra th, .table-zebra-mobile th {background-color: #e7e7e7=
+;}
+=09=09 .hero-text-center {text-align: center !important;padding: 0 30px !im=
+portant;}
+=09=09 .intro-tile-image { padding:10px 20px 10px 10px !important;}
+=09=09 .intro-tile-text  {padding:0 10px 0 0}
+=09=09 .intro-tile-text-20 {padding: 0 20px 0 0;}
+         .intro-tile-image-20 {padding: 20px 20px 20px 20px !important;}
+         .image-tile-10 { padding:10px 0px 0px 10px !important;}
+         .image-tile-20 {padding: 20px 0px 0px 20px !important;}
+         .email-table th table td { font-weight:600 !important;}
+         @media only screen and (max-width: 640px) {
+         .mobileHide {display:none;line-height:0; mso-hide: all;max-height:=
+ 0; max-width: 0; width:0;}
+         }
+         @media only screen and (max-width: 480px) {
+=09=09 .wrapper, .table-hr-icon, .table-zebra-icon, .email-table {width: 10=
+0%!important;}
+=09=09 .text-card-padding {padding: 0px 40px 0px 40px !important;}
+         .block, .block-text-align-right, .desktopHidden {width:100% !impor=
+tant; display:block !important;}
+=09=09 .app-download-block th, .btn-block, .btn-block-right {display: block=
+ !important; width: auto !important;}
+=09=09 .block-max-width, .block-max-width-center{ max-width: none !importan=
+t; display: block !important; width: auto !important;}
+         .addressText {font-size:10px !important;}
+=09=09 .mobileHidden, .table-ruler, .table-zebra {display: none !important;=
+}
+         .mobileBodyPadding {padding:10px 20px 35px 20px !important; width:=
+288px !important;}
+         .mobileNoPadding {padding:0 !important;}
+=09=09 .mobile-block-padd-top-30 {display: block !important;padding-top: 30=
+px;width: 100%;}
+         .mobileTopPad5 { padding-top: 5px !important; }
+         .mobileTopPad10 { padding-top: 10px !important; }
+         .hide{display:none;}
+         .show{display:none;}
+         .desktophide{display:block!important;}
+         .w-100p{width:100%!important;}
+         .p-0{padding:0!important;}
+         .flex{display:block!important;width:100%!important;box-sizing:bord=
+er-box!important;}
+         .thold{display:table!important;width:100%!important;}
+         .thead{display:table-header-group!important;width:100%!important;}
+         .tfoot{display:table-footer-group!important;width:100%!important;}
+         .mobile-padding-20{padding-left:20px!important; padding-right:20px=
+!important;}
+         .mobile-padding-rght-20{padding-left:0px!important; padding-right:=
+20px!important;}
+         .mobile-social-table{text-align:center!important;}
+         .mobile-social-padd-btm{padding-bottom:35px!important;}
+=09=09 .mobile-social-padd-btm-top{padding-bottom:35px!important;}
+         .mobile-social-marg-btm{margin-top:20px!important;}
+=09=09 .mobile-social-inline{display:inline-block!important; padding-right:=
+2px!important;}
+=09=09 .logo-mobile-img{width:85px!important;height:18px!important;}
+=09=09 .mobile-monthly-padd-left{padding-left:20px!important;}
+=09=09 .secondary-logo-padd-left{ padding-left:0px!important;}
+         .secondary-logo-padd-left-20{ padding-left:20px!important;}
+         .mobile-txt-center {text-align: center!important;}
+         .social-text-pad-rght{padding-right:20px!important;padding-bottom:=
+0px!important;}
+=09=09 .followus-pad-top{padding-top:20px!important;}
+=09=09.card-padding {padding-left: 20px!important; padding-right: 20px!impo=
+rtant; padding-top: 40px!important; padding-bottom: 40px!important;}
+=09=09.thead {display: table-header-group!important; width: 100%!important;=
+}
+=09=09.mobile-txt-center {text-align: center!important;}
+=09=09.tfoot {display: table-footer-group!important; width: 100%!important;=
+}
+=09=09.tile-pad-large-4 {padding-left: 20px !important; padding-right: 20px=
+ !important;}
+=09=09.tile-pad-large {padding-left: 60px !important; padding-right: 60px !=
+important;}
+=09=09.tile-pad-small-v1 {padding-left: 20px !important; padding-right: 20p=
+x !important;}
+=09=09.tile-pad-small-v2 {padding-left: 20px !important; padding-right: 20p=
+x !important;}
+=09=09.tile-pad-small-v3 {padding-left: 20px !important; padding-right: 20p=
+x !important;}
+=09=09.tile-pad-small-v5 {padding-left: 55px !important; padding-right: 55p=
+x !important;}
+=09=09.mob-padd-top-zero {padding-top: 0px !important;}
+        .boxed-list-wrapper {padding: 20px 20px 0 !important;}
+        .gutter {padding:0 20px!important;}
+=09=09.block-padd-top-30 { display: block !important; padding-top: 30px; }
+=09=09.mobile-bottom-padding-20 { padding: 0 0 20px 0 !important;}
+=09=09.hero-mobile { width: 100% !important; max-width: 100% !important; he=
+ight: auto !important;}
+        .hero-text-center {padding: 0 20px !important;}
+         .spacer-mob-30 {height: 30px !important;}
+         .spacer-mob-20 {height: 20px !important;}
+         .table-zebra-mobile, .table-ruler-mobile {display: table !importan=
+t;}
+         .table-ruler-mobile td, .table-zebra-mobile td, .table-ruler-mobil=
+e th, .table-zebra-mobile th {padding: 20px !important;}
+         .table-hr-icon td, .table-zebra-icon td {min-width: 16px !importan=
+t; max-width: 150px !important;}
+=09=09.rtl-template .block-text-align-right { text-align: right !important;=
+}
+        .thold { display: table !important; width: 100% !important; }
+=09=09.thead { display: table-header-group !important; width: 100% !importa=
+nt; }
+=09=09.tfoot { display: table-footer-group !important; width: 100% !importa=
+nt; }
+        .email-banner-padding { padding-left:20px !important; padding-right=
+:20px !important; }
+    .social-link{display: inline-block;padding-right:20px;}
+=09=09.rtl-template .social-link{display: inline-block;padding-left:20px !i=
+mportant;padding-right:0 !important;}
+=09=09.social-link:last-child { padding-right: 0;}
+=09=09.rtl-template .social-link:last-child{padding-left: 0;}
+         }
+         ul { margin:0 !important;padding-left:22px !important;text-align: =
+left !important;}
+         ol { margin-top:0 !important;margin-bottom:0 !important;padding-le=
+ft:22px !important;text-align: left !important;}
+=09=09 li{padding: 0 0 8px 12px !important;margin: 0 !important;}
+=09=09 li a {text-decoration: underline; color: #0067B8;}
+         *[class].gmailfix {display:none; display:none!important;}
+      </style>
+     <!--[if gte mso 16]>
+=09=09<style type=3D"text/css">
+=09=09p { mso-hyphenate: none;}
+        .rtl-template,
+        .rtl-template td{
+        direction: ltr !important;
+        text-align: right !important;
+        }
+        .rtl-template p {
+        direction: rtl !important;
+        text-align: right !important;
+        }
+        .text-rtl-center .list-item-right p {
+=09=09text-align: right !important;
+=09=09direction: rtl !important;
+=09=09}
+        .rtl-template .email-header p {
+        direction: rtl !important;
+        text-align: left !important;
+        }
+        .email-table th table td {
+=09=09font-weight:600 !important;
+=09=09}
+=09=09.text-rtl-center p,
+        .rtl-template .email-table .text-center p,
+        .rtl-template .email-table .text-center td {
+=09=09=09direction: rtl !important;
+=09=09=09text-align: center !important;
+=09=09}
+=09=09.email-table .text-center p,
+=09=09.email-table .text-center td {
+=09=09=09text-align:center !important;
+=09=09}
+        .email-table .text-left p,
+        .email-table .text-left td {
+         text-align:left !important;
+        }
+        .footer-address-center td,
+=09=09.footer-address-center td p,
+=09=09.footer-address-center td p a{
+=09=09=09=09text-align:center !important;
+=09=09=09=09direction:ltr !important;
+=09=09}
+ =09=09.cta-button{
+=09=09font-weight:normal !important;
+=09=09}
+=09=09li
+         {
+         margin: 0 0 8px 0 !important;
+         text-align: left !important;
+         }
+         div.list ul li {
+         mso-special-format: bullet;
+         }
+         div.list {
+         margin: 0 0 0 -20px;
+         }
+         div li.list-bottom{
+            margin-bottom: 28px !important;
+         }
+         .rtl-template li
+         {
+         margin: 0 0 8px 0 !important;
+         text-align: right !important;
+         direction : rtl !important;
+         }
+        .rtl-template div.list
+         {
+         Margin: 0 -20px 0 0;
+         }
+=09=09 .rtl-template .footeraddressrtl p,
+         .rtl-template .footeraddressrtl  {
+         direction: ltr !important;
+         text-align:right !important;
+         }
+         .footeraddressrtl {
+         mso-padding-alt: 0 30px !important;
+         }
+         .text-rtl-center .footeraddressrtl p,
+         .rtl-template .footeraddressrtl  {
+         direction: ltr !important;
+         text-align:center !important;
+         }
+         .text-rtl-center .txt-align-right td {
+=09=09  text-align:right !important;
+=09=09=09}
+=09=09 .txt-center ul li,
+         .txt-center ol li
+         {
+            text-align:center !important;
+         }
+=09=09 .rte-spacer-20 p
+=09=09 {
+=09=09=09mso-margin-bottom-alt: 20px;
+=09=09 }
+=09=09 .rte-spacer-10 p
+=09=09 {
+=09        mso-margin-bottom-alt: 10px;
+         }
+         .rte-footerspacer-10 p {
+=09        mso-margin-top-alt: 10px;
+         }
+         .rtl-template th.tileimage {
+         =09direction: ltr !important;
+         }
+=09=09 .table-hr-icon td,
+         .table-zebra-icon td,
+         .table-zebra td,
+         .table-zebra th,
+         .table-zebra-mobile td,
+         .table-zebra-mobile th,
+         .table-ruler td,
+         .table-ruler th,
+         .table-ruler-mobile td,
+         .table-ruler-mobile th
+         {
+=09=09=09mso-padding-alt: 20px 0 20px 20px !important;
+         }
+=09=09 .rtl-template .table-ruler th,
+=09=09 .rtl-template .table-zebra th {
+=09=09=09direction: rtl !important;
+=09=09 }
+=09=09 .rtl-template .rating-thumbs-down {
+=09=09=09padding-left:1px;
+=09=09 }
+=09=09 table {
+=09=09=09border-spacing: 0;
+=09=09=09mso-margin-bottom-alt: 0;
+=09=09=09mso-margin-top-alt: 0;
+=09=09=09mso-table-lspace: 0pt;
+=09=09=09mso-table-rspace: 0pt;
+=09=09}
+=09=09td ,th {
+=09=09mso-table-lspace: 0pt !important;
+=09=09mso-table-rspace: 0pt !important;
+=09=09}
+=09=09.mso-line-ht-rule {
+=09=09  mso-line-height-rule: exactly;
+=09=09}
+        .hero-text-center p{
+            text-align: center !important;
+        }
+        </style>
+=09<![endif]-->
+
+    
+   </head>
+    
+  <body dir=3D"ltr" style=3D"font-family:YaHei UI, Helvetica, Arial, sans-s=
+erif; font-size:12px; color:#4d4d4d; background-color:#e6e6e6; line-height:=
+20px; -webkit-text-size-adjust: none;">
+
+
+<div class=3D"root container responsivegrid">
+      <div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1p=
+x;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">=E5=
+=A5=96=E5=93=81=E6=B4=BE=E9=80=81=E6=B4=BB=E5=8A=A8=E5=8D=B3=E5=88=BB=E5=90=
+=AF=E5=8A=A8=E3=80=82=E6=82=A8=E7=9A=84=E5=85=8D=E8=B4=B9=E5=85=A5=E5=9C=BA=
+=E5=88=B8=E5=B0=B1=E5=9C=A8=E8=BF=99=E5=B0=81=E9=82=AE=E4=BB=B6=E9=87=8C=E3=
+=80=82</div>
+=09=09=09<div style=3D"display:none;font-size:1px;color:#ffffff;line-height=
+:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">
+=09=09=09=09=CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=
+=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C=
+ =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =
+=C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=
+=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=
+ =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =
+=CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=
+=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F=
+ =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =
+=E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=
+=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=
+=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C=
+ =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =
+=C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=
+=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=
+ =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =
+=CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=
+=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=CD=8F =
+=E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=
+=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=
+=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C=
+ =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =
+=C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=
+=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=
+ =CD=8F =E2=80=8C =C2=A0=CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=
+=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F=
+ =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =
+=E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=
+=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=
+=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C=
+ =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=CD=8F =E2=80=8C =C2=
+=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=
+ =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =
+=CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=
+=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F=
+ =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =
+=E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=
+=80=8C =C2=A0=CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=
+=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C=
+ =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =
+=C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=
+=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=
+ =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =
+=CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=
+=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F=
+ =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =
+=E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=
+=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=
+=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C=
+ =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =
+=C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=
+=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0=
+ =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =CD=8F =E2=80=8C =C2=A0 =
+=CD=8F =E2=80=8C =C2=A0
+=09=09=09</div>
+      <!--Gmail App Scaling Fix Don't Remove these =C2=A0 s its required fo=
+r gmail apps -->
+      <div class=3D"gmailfix" style=3D"white-space:nowrap; font:15px courie=
+r; line-height:0;">
+         =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 
+         =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 
+         =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0
+      </div>
+      <!--PARENT TABLE Starts Here -->
+=09  
+=09  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+ align=3D"center" class=3D"wrapper" style=3D"background-color:#e6e6e6; marg=
+in:0 auto;" role=3D"presentation">
+=09  
+=09  
+         <tbody>
+      =09=09<tr>
+               <td>
+                  <!--SECONDARY TABLE FOR OTHER COMPONENT Starts here -->
+=09=09=09=09  <!--[if gte mso 16]>
+                  <table cellspacing=3D"0" cellpadding=3D"0" class=3D"" ali=
+gn=3D"center" style=3D"width:660px; margin:0 auto; margin-top:2px;">
+=09=09=09=09  <![endif]-->
+=09=09=09=09  <!--[if !mso]><!-->
+=09=09=09=09  <table cellspacing=3D"0" cellpadding=3D"0" class=3D" wrapper"=
+ align=3D"center" style=3D"width:660px; margin:0 auto; margin-top:2px;" rol=
+e=3D"presentation">
+=09=09=09=09  <!--<![endif]-->
+                     <tbody>
+=09=09=09=09=09    <!-- Eyebrow component starts-->
+=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09   <td>
+=09=09=09=09=09=09=09=09
+    
+    
+    
+        <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"10=
+0%" style=3D"background-color: #EEF0F6;" role=3D"presentation">
+            <tbody>
+                <tr>
+                    <td>
+                        
+                        
+                            <table border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"background-color: #EEF0F6;" role=3D"presen=
+tation">
+                                <tbody>
+                                    <tr>
+                                        <td class=3D"mobile-padding-20" ali=
+gn=3D"left" style=3D"color:#000000; font-family:YaHei UI, Helvetica, Arial,=
+ sans-serif; font-size:10px; line-height:14px;letter-spacing: -0.02em;paddi=
+ng:10px 30px 10px 30px;">
+                                            <p style=3D"color:#000000; font=
+-family:YaHei UI, Helvetica, Arial, sans-serif; font-size:10px; line-height=
+:14px;margin:0;padding:0;letter-spacing: -0.02em;">
+                                                
+                                                <a href=3D"https://t.custom=
+ermail.microsoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad04&e=3DcDE9QEhobFlPR=
+EVQVXR6SFJSRld2TDF5UGlCR0hqNW9vd2J2R3pzMFRja1N0eUdpbFhWZVZGUjVoUmNFM3MtaXRw=
+d0k3RVFQS3RTQ1lxcG04V3VqSWlCUkN5UWlmNHBKaFc1N29HV21ucEZqb1F5YTVwVm0&s=3DtWi=
+s5x_v28kMDXO0tEOn9R1a1Jr-Wa_-sPZn6Lweuas" style=3D"white-space: nowrap;font=
+-weight:400;color:#000000;" >                                              =
+      =E4=BB=A5=E7=BD=91=E9=A1=B5=E5=BD=A2=E5=BC=8F=E6=9F=A5=E7=9C=8B
+                                                </a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09<!-- Eyebrow component ends-->
+=09=09=09=09=09
+                     =09<!-- HEADER SECTION STARTS HERE-->
+                     =09<tr>
+                     =09=09<td>
+                     =09=09=09
+=09
+=09
+=09=09
+=09
+=09
+=09
+=09=09<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" bgcolor=3D"#FFFFFF" role=3D"presentation">
+=09=09=09<tbody>
+=09=09=09
+=09=09=09=09
+   <tr>
+       <td height=3D"20px">=C2=A0</td>
+   </tr>
+
+=09=09=09=09<tr>
+=09=09=09=09=09<td class=3D"gutter">
+=09=09=09=09=09=09
+=09=09=09=09=09=09=09<a target=3D"_blank" href=3D"https://t.customermail.mi=
+crosoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad05" ><img src=3D"https://cdn-=
+dynmedia-1.microsoft.com/is/image/microsoftcorp/Microsoft@2x%20Light%20Them=
+e=3Fscl=3D1&fmt=3Dpng-alpha" alt=3D"Microsoft =E5=BE=BD=E6=A0=87" style=3D"=
+display:block; height:20px;" height=3D"20"/>
+=09
+=09
+
+=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09</td>
+=09=09=09=09</tr>
+=09=09=09=09
+   <tr>
+       <td height=3D"20px">=C2=A0</td>
+   </tr>
+
+=09=09=09
+=09=09=09</tbody>
+=09=09</table>
+=09
+
+=09=09
+=09=09
+=09=09
+=09=09
+=09=09
+=09
+
+
+                     =09=09</td>
+                     =09</tr>
+                     =09<!-- HEADER SECTION ENDS HERE-->
+=09=09=09=09=09=09<tr>
+                     =09=09<td>
+                                
+
+
+
+
+    
+    
+    <div class=3D"card">
+=09
+=09
+=09
+=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"background-color: #F6FBE8" role=3D"presentation">
+=09=09=09<tbody>
+=09=09=09
+=09=09=09
+    
+    
+        <tr>
+            <td height=3D"20">=C2=A0</td>
+        </tr>
+    
+
+=09=09=09
+=09=09=09
+=09=09=09
+=09=09=09
+=09=09=09<tr>
+=09=09=09=09<td>
+=09=09=09=09=09
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"background-color: ;" role=3D"presentation">
+   <tr>
+       <td>
+           
+               <a target=3D"_blank" href=3D"https://t.customermail.microsof=
+t.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad06" ><img src=3D"https://cdn-dynmed=
+ia-1.microsoft.com/is/image/microsoftcorp/New_Q3_Hero%20localization%20ZH%2=
+0CN=3Fscl=3D1&fmt=3Dpng-alpha" alt=3D"Microsoft Rewards =E5=A5=96=E5=93=81=
+=E6=B4=BE=E9=80=81=E5=9B=BE=E5=83=8F" style=3D"width: 100%;vertical-align:b=
+ottom;max-height:1200px;" border=3D"0" class=3D"hero-mobile" height=3D"auto=
+" width=3D"660"/>
+=09
+=09
+
+               </a>
+           
+           
+       </td>
+   </tr>
+</table>
+
+=09=09=09=09=09
+=09=09=09=09=09
+=09=09=09=09=09
+=09=09=09=09=09
+=09=09=09=09=09
+=09=09=09=09=09
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09=09<tr>
+=09=09=09=09<td>
+=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"100%" role=3D"presentation">
+=09=09=09=09=09=09
+=09=09=09=09=09=09=09
+
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09
+    
+    
+        <tr>
+            <td height=3D"20">=C2=A0</td>
+        </tr>
+    
+
+=09=09=09=09=09=09=09
+
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"txt-center" style=3D"padding-top:0p=
+x; padding-bottom:0px;" align=3D"center">
+=09=09=09=09=09=09=09=09=09=09<table border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" width=3D"100%" class=3D"rte-spacer-20" role=3D"presentation">
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"hero-text-center" style=
+=3D"color:#000000;font-family:YaHei UI, Helvetica, Arial, sans-serif; font-=
+size:16px; font-style:normal;line-height:24px;letter-spacing: -0.02em;" ali=
+gn=3D"center">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!--[if mso]>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"list">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<![endif]-->
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<p>=E6=95=B0=E5=8D=83=E4=BB=BD=E5=
+=A5=96=E5=93=81=E7=AD=89=E6=82=A8=E6=9D=A5=E6=8B=BF=EF=BC=8C=E5=8C=85=E6=8B=
+=AC=E7=A4=BC=E5=93=81=E5=8D=A1=E3=80=81Dyson Airwrap i.d=E2=84=A2 =E5=A4=9A=
+=E5=8A=9F=E8=83=BD=E9=80=A0=E5=9E=8B=E5=99=A8=E6=88=96 Copilot+ =E7=94=B5=
+=E8=84=91=E3=80=82=E6=AF=8F=E5=A4=A9=E4=BD=BF=E7=94=A8 Bing =E6=90=9C=E7=B4=
+=A2=EF=BC=8C=E7=84=B6=E5=90=8E=E6=9F=A5=E7=9C=8B=E6=98=AF=E5=90=A6=E6=88=90=
+=E4=B8=BA=E5=8D=B3=E6=97=B6=E8=B5=A2=E5=AE=B6=E3=80=82<sup>1</sup></p>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<!--[if mso]>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<![endif]-->
+=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<td style=3D"text-align:center;" align=3D"center">
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09
+   
+   
+   
+   
+   
+   
+   
+   <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" s=
+tyle=3D"background-color: #F6FBE8;" role=3D"presentation">
+      <tbody>
+         <tr>
+            <td class=3D"gutter">
+               <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"center" role=3D"presentation">
+=09=09=09    <tr>
+                    <td>
+                        <table border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" role=3D"presentation">
+                  <tbody>
+                     <tr>
+                        
+                           
+                           
+                              
+                                 
+                                 
+                                 <!--[if mso]>
+                                 <td class=3D"btn-block" >
+                                 <![endif]-->=09
+                                 
+                                 <!-- hide from outlook -->
+                                 <!--[if !mso]><\!-->
+                                 <td class=3D"btn-block">
+                                    <!-- <![endif]-->
+                                    <table class=3D"btn-rtl" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" align=3D"center" role=3D"presentation">
+                                       <tbody>
+                                          <tr>
+                                             <td>
+                                                <table border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%" dir=3D"ltr" role=3D"presentatio=
+n">
+                                                   
+    
+    
+=09
+        
+        
+            <th class=3D"block-max-width-center" align=3D"center" style=3D"=
+border-radius:2px; font-family:YaHei UI, Helvetica, Arial, sans-serif; font=
+-style: normal; font-weight:600 !important; font-size:18px; line-height:24p=
+x; mso-line-height-rule: exactly; padding:8px 20px; min-width:100px; border=
+: 1px solid #0F6CBD;" bgcolor=3D"#0F6CBD">
+                <a href=3D"https://t.customermail.microsoft.com/r/=3Fid=3Dh=
+15bcee75b,448bf1,4465ad07" title=3D"=E9=A2=86=E5=8F=96=E5=85=8D=E8=B4=B9=E5=
+=8F=82=E4=B8=8E=E6=9C=BA=E4=BC=9A" style=3D"text-decoration:none; ; color :=
+ #ffffff;" aria-label=3D"=E9=A2=86=E5=8F=96=E5=85=8D=E8=B4=B9=E5=8F=82=E4=
+=B8=8E=E6=9C=BA=E4=BC=9A=E6=89=93=E5=BC=80=E4=B8=80=E4=B8=AA=E6=96=B0=E7=AA=
+=97=E5=8F=A3" target=3D"_blank" ><strong class=3D"cta-button" style=3D"colo=
+r : #ffffff; font-weight:600;">=E9=A2=86=E5=8F=96=E5=85=8D=E8=B4=B9=E5=8F=
+=82=E4=B8=8E=E6=9C=BA=E4=BC=9A</strong>
+                </a>
+            </th>
+        
+=09
+=09
+    
+
+                                                </table>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </td>
+                              
+                              
+                           
+                        
+                     </tr>
+                  </tbody>
+=09=09=09=09 </table>
+                </td>
+               </tr>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09</table>
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09=09
+=09=09=09
+=09=09=09
+=09=09=09
+=09=09=09
+=09=09=09
+=09=09=09=09
+    
+    
+        <tr>
+            <td height=3D"30">=C2=A0</td>
+        </tr>
+    
+
+=09=09=09
+=09=09=09
+=09=09=09</tbody>
+=09=09</table>
+=09
+</div>
+
+
+    
+    
+    <div class=3D"imagestandalone">
+   
+   
+      
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"background-color: #F6FBE8;" role=3D"presentation">
+   <tr>
+       <td class=3D"gutter">
+           
+               <a target=3D"_blank" href=3D"https://t.customermail.microsof=
+t.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad08" ><img src=3D"https://cdn-dynmed=
+ia-1.microsoft.com/is/image/microsoftcorp/IW-Only_Prize_660x370_2x=3Fscl=3D=
+1&fmt=3Dpng-alpha" alt=3D"=E4=BB=A5=E5=BD=A9=E8=89=B2=E5=BD=A2=E7=8A=B6=E6=
+=98=BE=E7=A4=BA=E7=9A=84 Microsoft Rewards =E6=8A=BD=E5=A5=96=E6=B4=BB=E5=
+=8A=A8=E5=A5=96=E5=93=81" style=3D"width: 100%;vertical-align:bottom;max-he=
+ight:1200px;" border=3D"0" class=3D"hero-mobile" height=3D"auto" width=3D"6=
+00"/>
+=09
+=09
+
+               </a>
+           
+           
+       </td>
+   </tr>
+</table>
+
+=09=09 =09
+      
+      
+      
+      
+      
+=09=09 =09
+      
+   
+</div>
+
+
+    
+    
+    <div class=3D"divider">
+   
+   
+   
+      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%=
+" style=3D"background: #F6FBE8;" role=3D"presentation">
+         <tbody>
+         
+            
+    
+        
+        
+    
+    
+
+         
+            <tr>
+               <td>
+                  <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" w=
+idth=3D"100%" role=3D"presentation">
+                     <tr>
+                        <td height=3D"1" style=3D"background: #F6FBE8; bord=
+er: none; color: #F6FBE8;font-size:1px;mso-line-height-rule:exactly;line-he=
+ight:1px;">=C2=A0</td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+         
+            
+    
+        
+        
+    
+    
+
+         
+         </tbody>
+      </table>
+   
+
+</div>
+
+
+    
+    
+    <div class=3D"tile">
+   
+   
+   
+      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%=
+" style=3D"background-color: #ffffff;" role=3D"presentation">
+         <tbody>
+            
+               
+               
+                  
+    
+    
+        <tr>
+            <td height=3D"40">=C2=A0</td>
+        </tr>
+    
+
+               
+            
+            
+               <tr style=3D"text-align:left" align=3D"left">
+                  <td class=3D"gutter">
+                     
+    
+
+    
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            
+            
+                <p style=3D"color:#0067B8;
+                        font-family:YaHei UI, Helvetica, Arial, sans-serif;=
+font-style: normal;font-weight:600; font-size:24px;line-height:30px;letter-=
+spacing:-0.02em; margin:0; padding:0;" role=3D"heading" aria-level=3D"1"> <=
+span style=3D"=09color: rgb(0,0,0);
+">=E5=BF=AB=E9=80=9F=E9=93=BE=E6=8E=A5</span> </p>
+            
+        
+
+        
+
+        
+
+        
+    
+
+                  </td>
+               </tr>
+               
+    
+    
+        <tr>
+            <td height=3D"20">=C2=A0</td>
+        </tr>
+    
+
+            
+            
+               <tr class=3D" " style=3D"text-align:left" align=3D"left">
+                  <td class=3D"gutter" style=3D"color:#0067B8;font-family:Y=
+aHei UI, Helvetica, Arial, sans-serif; font-style: normal; font-weight: 400=
+; font-size: 16px; line-height: 24px; letter-spacing: -0.02em; margin:0; ">
+                     <!--[if mso]>
+                     <div class=3D"list">
+                     <![endif]-->
+                     <ul>
+ <li><span style=3D"font-weight: 600;"><a href=3D"https://t.customermail.mi=
+crosoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad09" _rte_href=3D"https://go.m=
+icrosoft.com/fwlink/=3Flinkid=3D2354416" class=3D"ms-rte-link" target=3D"_b=
+lank" style=3D"color:#0067B8" >=E2=80=9C=E5=A4=A7=E5=A5=96=E6=94=BE=E9=80=
+=81=E2=80=9D=E6=8E=A7=E5=88=B6=E9=9D=A2=E6=9D=BF</a></span></li>
+ <li><span style=3D"font-weight: 600;"><a href=3D"https://t.customermail.mi=
+crosoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad0a" _rte_href=3D"https://go.m=
+icrosoft.com/fwlink/=3Flinkid=3D2348946" class=3D"ms-rte-link" target=3D"_b=
+lank" style=3D"color:#0067B8" >=E6=88=91=E7=9A=84 Microsoft Rewards =E6=8E=
+=A7=E5=88=B6=E9=9D=A2=E6=9D=BF</a></span></li>
+ <li><span style=3D"font-weight: 600;"><a href=3D"https://t.customermail.mi=
+crosoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad0b" _rte_href=3D"https://go.m=
+icrosoft.com/fwlink/=3Flinkid=3D2348947" class=3D"ms-rte-link" target=3D"_b=
+lank" style=3D"color:#0067B8" >=E5=85=B3=E4=BA=8E Microsoft Rewards</a></sp=
+an></li>
+ <li><span class=3D"semibold"><a href=3D"https://t.customermail.microsoft.c=
+om/r/=3Fid=3Dh15bcee75b,448bf1,4465ad0c" _rte_href=3D"https://go.microsoft.=
+com/fwlink/=3Flinkid=3D2348948" class=3D"ms-rte-link" target=3D"_blank" sty=
+le=3D"color:#0067B8" >=E5=B8=B8=E8=A7=81=E9=97=AE=E9=A2=98=E8=A7=A3=E7=AD=
+=94</a></span></li>
+</ul>
+                     <!--[if mso]>
+                     </div>
+                     <![endif]-->
+                  </td>
+               </tr>
+               
+    
+    
+        <tr>
+            <td height=3D"20">=C2=A0</td>
+        </tr>
+    
+
+            
+            <!-- Multifield Starts -->
+            
+            <!-- Multifield Ends -->
+            
+               
+                  
+    
+    
+        <tr>
+            <td height=3D"20">=C2=A0</td>
+        </tr>
+    
+
+               
+               
+            
+         </tbody>
+      </table>
+   
+</div>
+
+
+    
+    
+    <div class=3D"footnote">
+   
+   
+   
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" style=3D"background-color: #F2F2F2;" role=3D"presentation">
+         <tbody>
+=09=09=09<tr>
+               <td height=3D"10" class=3D"spacer-ln-ht-0">=C2=A0</td>
+            </tr>
+            <tr>
+               <td class=3D"txt-align-right" align=3D"left">
+                  <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" w=
+idth=3D"100%" class=3D"rte-footerspacer-10" role=3D"presentation">
+                     <tr>
+                        <td class=3D"gutter" style=3D"color:#000000;font-fa=
+mily:YaHei UI, Helvetica, Arial, sans-serif;font-size:10px;line-height:14px=
+;letter-spacing:-0.02em;font-style:normal;">
+                           <body>
+ <p><sup>1</sup>=E7=84=A1=E9=9C=80=E8=B3=BC=E8=B2=B7=E3=80=82=E6=B4=BB=E5=
+=8B=95=E8=87=B3 2026 =E5=B9=B4 5 =E6=9C=88 21 =E6=97=A5 =E6=99=9A=E4=B8=8A =
+11:59:59 (=E5=A4=AA=E5=B9=B3=E6=B4=8B=E6=99=82=E9=96=93) =E6=88=AA=E6=AD=A2=
+=E3=80=82=E5=8F=83=E5=8A=A0=E8=80=85=E9=A0=88=E9=81=94=E5=88=B0=E6=B3=95=E5=
+=AE=9A=E5=B9=B4=E9=BD=A1=E3=80=82=E6=B4=BB=E5=8B=95=E8=88=89=E8=BE=A6=E5=9C=
+=B0=E5=8D=80=E7=82=BA U.S. + D.C./P.R.=E3=80=81CA=E3=80=81UK=E3=80=81FR=E3=
+=80=81DE=E3=80=81NL=E3=80=81IE=E3=80=81AT=E3=80=81GR=E3=80=81FI=E3=80=81LU=
+=E3=80=81ES=E3=80=81CH=E3=80=81NO=E3=80=81MX=E3=80=81PE=E3=80=81EC=E3=80=81=
+CR=E3=80=81GT=E3=80=81NZ=E3=80=81JP=E3=80=81SG=E3=80=81KR=E3=80=81CN=E3=80=
+=81HK=E3=80=81CZ=E3=80=81RO =E5=8F=8A ZA=E3=80=82=E6=AC=B2=E5=8F=83=E5=8A=
+=A0=E4=B8=A6=E4=BA=86=E8=A7=A3=E5=AE=98=E6=96=B9=E8=A6=8F=E5=AE=9A (=E5=8C=
+=85=E5=90=AB=E4=B8=AD=E7=8D=8E=E6=A9=9F=E7=8E=87=E8=88=87=E7=8D=8E=E9=A0=85=
+=E8=AA=AA=E6=98=8E)=EF=BC=8C=E8=AB=8B=E5=8F=83=E9=96=B1=E6=B4=BB=E5=8B=95=
+=E8=A6=8F=E5=AE=9A=EF=BC=9A<a href=3D"https://t.customermail.microsoft.com/=
+r/=3Fid=3Dh15bcee75b,448bf1,4465ad0d" _rte_href=3D"https://aka.ms/win-IW-Ru=
+les" style=3D"color:#0067B8" >https://aka.ms/win-IW-Rules</a>=E3=80=82=E9=
+=80=A3=E7=B7=9A=E6=99=82=E9=96=93=E5=8F=AF=E8=83=BD=E6=9C=83=E7=94=A2=E7=94=
+=9F=E8=B2=BB=E7=94=A8=E3=80=82=E5=8A=A0=E6=8B=BF=E5=A4=A7=E8=88=87=E5=A2=A8=
+=E8=A5=BF=E5=93=A5=E5=B1=85=E6=B0=91=EF=BC=9A=E9=9C=80=E5=9B=9E=E7=AD=94=E6=
+=8A=80=E8=83=BD=E6=B8=AC=E9=A9=97=E5=95=8F=E9=A1=8C=E3=80=82=E8=8B=A5=E7=95=
+=B6=E5=9C=B0=E6=B3=95=E5=BE=8B=E7=A6=81=E6=AD=A2=EF=BC=8C=E5=89=87=E6=B4=BB=
+=E5=8B=95=E7=84=A1=E6=95=88=E3=80=82</p>
+</body>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+            <tr>
+               <td height=3D"20" class=3D"spacer-ln-ht-0">=C2=A0</td>
+            </tr>
+         </tbody>
+      </table>
+   
+</div>
+
+
+    
+    
+    <div class=3D"imagestandalone">
+   
+   
+      
+=09=09 =09
+      
+      
+      
+      
+      
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"background-color: ;" role=3D"presentation">
+   <tr>
+       <td>
+           
+           
+               
+=09
+    <img src=3D"https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp=
+/Footer%20-%20ICG-ZH-CN-Hant=3Fscl=3D1&fmt=3Dpng-alpha" alt=3D"IC Engage =
+=E5=BE=BD=E6=A0=87" style=3D"width: 100%;vertical-align:bottom;max-height:3=
+70px;" border=3D"0" class=3D"hero-mobile" height=3D"auto" width=3D"660"/>
+=09
+=09
+
+           
+       </td>
+   </tr>
+</table>
+
+=09=09 =09
+      
+   
+</div>
+
+
+
+                            </td>
+                     =09</tr>
+
+                        <!-- FOOTER SECTION STARTS HERE -->
+
+                        <tr>
+                     =09=09<td>
+                                
+
+
+
+
+
+                            </td>
+                     =09</tr>
+
+                        <tr>
+                     =09=09<td>
+                 =09=09=09=09
+   
+
+   
+   
+      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%=
+" style=3D"background-color:#F2F2F2;" role=3D"presentation">
+         <tbody>
+            
+               
+    
+    
+        <tr>
+            <td height=3D"20">=C2=A0</td>
+        </tr>
+    
+
+            
+=09=09=09
+            
+            <tr>
+               <td class=3D"gutter" style=3D"color:#2F2F2F;font-family:YaHe=
+i UI, Helvetica, Arial, sans-serif;font-size:10px;line-height:14px;letter-s=
+pacing:-0.02em;font-style:normal;">
+                  <p>=E6=AD=A4=E7=94=B5=E5=AD=90=E9=82=AE=E4=BB=B6=E7=94=B1=
+=E6=97=A0=E4=BA=BA=E7=9B=91=E6=8E=A7=E7=9A=84=E9=82=AE=E7=AE=B1=E5=8F=91=E9=
+=80=81=E3=80=82
+</p>
+               </td>
+            </tr>
+            
+            
+            <tr>
+               <td>
+                  
+                  
+                  
+                  
+                  
+=09
+
+
+
+
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">
+   <tr>
+   =09<td height=3D"20">&#xA0;</td>
+   </tr>
+   <!--Privacy text-->
+   
+     
+    
+   <tr>
+      <td class=3D"gutter" style=3D"font-family:Segoe UI,Helvetica,Arial,sa=
+ns-serif;font-size:10px;line-height:14px;color:#2F2F2F;">
+         
+
+
+<a title=3D"=E5=8F=96=E6=B6=88=E8=AE=A2=E9=98=85" href=3D"https://t.custome=
+rmail.microsoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad75&e=3DcDE9cHJvZmlsZS=
+91bnN1YnNjcmliZT9DVElEPTAmRUNJRD0ydEkwbGdYRUFfTTdEUkpoQXNsYXZtNFU2Y0pQV0tka=
+3BsX2xvVWNaN2I0Jks9ZGMwMWU0MWYtODg2ZS00NDFjLTlkYTItNDc3ZmQzN2FjNGY2JkQ9NjM5=
+MDk0NzAxMzI2MjIyMDA0JlBJRD0xODAxNSZUSUQ9MGI4ZjZiMjgtZDQ3YS00OTUxLTkxNmUtZTg=
+1YTAxMWQ4YTY5JkNNSUQ9SXJpcy1NaWNyb3NvZnQlMjBSZXdhcmRzLTU3NTA3NDI1NQ&s=3DXN4=
+wXqtCxwKrQPIJH25E5WALJ-okdcJt_Z00frXyDrc" _label=3D"Opt-out link" _type=3D"=
+optout" ><strong style=3D"color:#2F2F2F;text-decoration:underline;font-weig=
+ht:normal;">=E5=8F=96=E6=B6=88=E8=AE=A2=E9=98=85</strong></a> <span style=
+=3D"color:#2F2F2F;"> | </span>  
+
+
+
+<a title=3D"=E9=9A=90=E7=A7=81=E5=A3=B0=E6=98=8E" href=3D"https://t.custome=
+rmail.microsoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ad76" _label=3D"Privacy=
+ Link" _type=3D"Email click" ><strong style=3D"color:#2F2F2F;text-decoratio=
+n:underline;font-weight: normal;">=E9=9A=90=E7=A7=81=E5=A3=B0=E6=98=8E</str=
+ong></a>
+
+      </td>
+   </tr>
+   
+    
+
+
+
+      <tr>
+      <!--[if gte mso 9]>
+=09=09=09=09<td class=3D"footeraddressrtl" style=3D"color:#2F2F2F;font-fami=
+ly:Segoe UI,Helvetica,Arial,sans-serif;font-size:10px;line-height:14px;lett=
+er-spacing:-0.02em;font-style:normal;">     
+=09=09=09<![endif]-->
+=09=09=09<!--[if !gte mso 9]><!-- -->
+=09=09=09=09<td class=3D"gutter" style=3D"color:#2F2F2F;font-family:Segoe U=
+I,Helvetica,Arial,sans-serif;font-size:10px;line-height:14px;letter-spacing=
+:-0.02em;font-style:normal;">
+=09=09=09<!--<![endif]-->
+      =09 
+         <p>Microsoft Corporation,&#xA0;One Microsoft Way,&#xA0;Redmond, WA=
+ 98052
+         </p>
+         
+      </td>
+   </tr>
+   <tr>
+     <td style=3D"line-height:1px; mso-line-height-rule:exactly;">
+       <img border=3D"0" src=3D"https://me-cam-pixel-tracker-prod.azure-api=
+.net/api/p79/track.png" height=3D"1" width=3D"1" style=3D"display:block;hei=
+ght:1px;">
+     </td>
+</tr>
+</table>
+
+=09
+
+               </td>
+            </tr>            
+            <tr>
+               
+    
+    
+        <tr>
+            <td height=3D"20">=C2=A0</td>
+        </tr>
+    
+
+               <td>
+                  <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" w=
+idth=3D"100%" role=3D"presentation">
+                     <tr>
+                          <td class=3D"gutter" width=3D"100" style=3D"line-=
+height:14px;">
+                                
+                                       <a target=3D"_blank" href=3D"https:/=
+/t.customermail.microsoft.com/r/=3Fid=3Dh15bcee75b,448bf1,4465ae98" ><img s=
+rc=3D"https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/microsoft=
+%20logo-1=3Fscl=3D1&fmt=3Dpng-alpha" alt=3D"Microsoft =E5=BE=BD=E6=A0=87" s=
+tyle=3D"display:block; height:20px;" height=3D"20"/>
+=09
+=09
+
+                                         </a>
+                                 
+                                  
+=09=09=09=09=09=09=09</td>
+                       </tr>
+                  </table>
+               </td>
+            </tr>
+            
+    
+    
+        <tr>
+            <td height=3D"30">=C2=A0</td>
+        </tr>
+    
+
+         </tbody>
+      </table>
+   
+
+                 =09=09=09</td>
+                 =09=09</tr>
+                  =09=09<!-- FOOTER SECTION ENDS HERE -->
+
+                     </tbody>
+                  </table>
+                </td>
+              </tr>
+      =09=09
+      =09 </tbody>
+      </table>
+      <!--PARENT TABLE Ends Here -->
+      <p style=3D"line-height:1px;">=C2=A0</p>
+=09</div>
+
+<img height=3D'0' width=3D'0' alt=3D'' src=3D'https://t.customermail.micros=
+oft.com/r/=3Fid=3Dh15bcee75b,448bf1,1'/>
+</body>
+</html>
+
