@@ -1,0 +1,24 @@
+From: "Apple安全中心" <security@apple-id-verify.cn>
+To: user@example.com
+Subject: 【安全通知】您的Apple ID检测到异常登录
+Date: Wed, 14 May 2026 14:30:00 +0800
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+尊敬的Apple用户：
+
+系统检测到您的Apple ID于10分钟前在一台未知设备（iPhone 14 Pro Max，IP地址：103.47.xx.xx）登录。
+
+登录地点：中国 广东省 深圳市
+设备类型：iPhone 14 Pro Max (iOS 18.3)
+
+如非本人操作，您的账户可能已被盗用。为保障您的资金和隐私安全，请立即点击下方链接验证身份并修改密码：
+
+https://appleid-verify.safety-check.cn/verify?id=A1B2C3D4
+
+若您在24小时内未完成验证，账户将被临时冻结以保护您的数据。届时您将无法使用iCloud、App Store、Apple Pay等服务。
+
+如有疑问，请联系Apple支持：400-666-8800（24小时）
+
+Apple安全中心
+2026年5月14日
