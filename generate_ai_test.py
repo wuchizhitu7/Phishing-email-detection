@@ -4,7 +4,7 @@ import time
 import json
 from openai import OpenAI
 
-API_KEY = "tp-c6xaimmxon4tvr5rxa57djcl94htmi6w1vcg775raazet470"
+API_KEY = ""
 API_BASE_URL = "https://token-plan-cn.xiaomimimo.com/v1"
 MODEL_NAME = "mimo-v2.5"
 TOTAL_COUNT = 200
