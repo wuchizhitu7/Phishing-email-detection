@@ -2,6 +2,13 @@
 
 > 基于 **Random Forest + BERT 双引擎混合架构**，融入 **Perplexity 困惑度特征**，具备 AI 生成钓鱼邮件检测能力。
 
+## 演示视频
+
+
+https://github.com/user-attachments/assets/ea843917-8141-4205-80f5-c864bf3607b9
+
+
+
 ## ✨ 特性
 
 - **双引擎混合检测**：RF（jieba 分词 + TF-IDF）+ BERT（bert-base-chinese 语义理解），ENSEMBLE 加权融合
