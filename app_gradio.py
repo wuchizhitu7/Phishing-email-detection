@@ -1,6 +1,7 @@
 import gradio as gr
 import os
 from predict import EMLPredictor
+from url_security import analyze_urls, format_url_report
 
 # 1. 路径配置
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -27,6 +28,15 @@ def process_email(file, engine_mode):
         prob = predictor.predict(file.name, mode=selected_mode, rf_weight=0.4, bert_weight=0.6)
         _, urls = predictor._extract_eml_content(file.name)
 
+        # URL 安全分析 + 偏置
+        url_results = analyze_urls(urls)
+        url_report = format_url_report(url_results)
+        url_max_risk = max((r['risk_score'] for r in url_results), default=0)
+        if url_max_risk >= 6:
+            prob = min(prob + 0.15, 1.0)
+        elif url_max_risk >= 4:
+            prob = min(prob + 0.08, 1.0)
+
         if prob < 0.5:
             res, level = "✅ 安全：正常邮件", "无风险"
         elif 0.5 <= prob < 0.75:
@@ -34,7 +44,7 @@ def process_email(file, engine_mode):
         else:
             res, level = "🛑 高危：极高风险钓鱼邮件", "高危"
 
-        return f"{res} ({level})", f"{prob:.2%}", "\n".join(urls) if urls else "未检测到链接"
+        return f"{res} ({level})", f"{prob:.2%}", url_report
 
     except Exception as e:
         return f"检测出错: {str(e)}", "Error", "Error"
@@ -68,7 +78,7 @@ with gr.Blocks(title="AI 钓鱼邮件多引擎检测", theme=gr.themes.Soft()) a
         with gr.Column(scale=1):
             res_output = gr.Textbox(label="检测结论及风险等级", interactive=False)
             prob_output = gr.Textbox(label="恶意概率评分", interactive=False)
-            url_output = gr.Textbox(label="提取到的可疑链接列表", lines=8, interactive=False)
+            url_output = gr.Textbox(label="URL 安全检测", lines=10, interactive=False)
 
     analyze_btn.click(
         fn=process_email,

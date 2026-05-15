@@ -10,8 +10,11 @@ import torch
 import torch.nn as nn
 from transformers import AutoTokenizer, AutoModel
 from tokenizer_utils import jieba_tokenizer
-from transformers import AutoTokenizer, AutoModelForMaskedLM
+from url_security import analyze_urls, format_url_report
+from transformers import AutoTokenizer, AutoModel, AutoModelForMaskedLM
 from torch import no_grad, exp as torch_exp, tensor
+
+MODEL_NAME = "bert-base-chinese"
 
 MODEL_NAME = "bert-base-chinese"
 
@@ -156,6 +159,17 @@ class EMLPredictor:
         body, urls = self._extract_eml_content(eml_path)
         num_dict = self._get_numeric_dict(body, urls)
 
+        # URL 安全分析 + 风险偏置
+        url_results = analyze_urls(urls)
+        url_report = format_url_report(url_results)
+        url_max_risk = max((r['risk_score'] for r in url_results), default=0)
+        if url_max_risk >= 6:
+            url_boost = 0.15
+        elif url_max_risk >= 4:
+            url_boost = 0.08
+        else:
+            url_boost = 0.0
+
         if mode == "RF":
             prob = self._get_rf_prob(body, num_dict)
             mode_name = "RF"
@@ -167,19 +181,32 @@ class EMLPredictor:
             bert_prob = self._get_bert_prob(body, num_dict)
             prob = rf_weight * rf_prob + bert_weight * bert_prob
 
+            if url_boost > 0:
+                prob = min(prob + url_boost, 1.0)
+
             print(f"\n--- [ENSEMBLE 引擎] 检测报告: {eml_path} ---")
             print(f"RF   恶意概率: {rf_prob:.2%}")
             print(f"BERT 恶意概率: {bert_prob:.2%}")
             print(f"Ensemble 恶意概率: {prob:.2%}")
+            if url_boost > 0:
+                print(f"URL 安全偏置: +{url_boost:.0%} (最大风险分 {url_max_risk})")
             print(f"判定结果: {'【高风险】钓鱼邮件' if prob > 0.5 else '【安全】正常邮件'}")
+            print(f"\n--- URL 安全分析 ---")
+            print(url_report)
             return prob
         else:
             raise ValueError("mode 必须是 'RF'、'BERT' 或 'ENSEMBLE'")
 
-        # 单模型统一报告
+        # 单模型: URL 偏置
+        prob = min(prob + url_boost, 1.0)
+
         print(f"\n--- [{mode_name} 引擎] 检测报告: {eml_path} ---")
         print(f"恶意概率得分: {prob:.2%}")
+        if url_boost > 0:
+            print(f"URL 安全偏置: +{url_boost:.0%} (最大风险分 {url_max_risk})")
         print(f"判定结果: {'【高风险】钓鱼邮件' if prob > 0.5 else '【安全】正常邮件'}")
+        print(f"\n--- URL 安全分析 ---")
+        print(url_report)
         return prob
 
 
