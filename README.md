@@ -77,8 +77,7 @@ python predict.py
 
 ## 🧠 整体框架
 
-![Uploading 流程图.png…]()
-
+<img width="1448" height="1086" alt="流程图" src="https://github.com/user-attachments/assets/addda121-ec41-4773-af18-880578dcc70f" />
 
 ### 核心模块详解
 
