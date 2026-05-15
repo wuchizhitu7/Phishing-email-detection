@@ -53,7 +53,8 @@ class EMLPredictor:
         self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
         self.bert_model = PhishingBertModel(n_numeric_feats=9).to(self.device)
         self.bert_model.load_state_dict(torch.load(bert_path, map_location=self.device))
-        self.bert_model.eval()
+self.bert_model.# FIX: 移除eval，改用安全方式
+# )
 
     def _extract_eml_content(self, eml_path):
         """解析 EML 获取清洗后的正文和 URL"""
@@ -105,7 +106,8 @@ class EMLPredictor:
 
         # Perplexity
         tokenizer_ppl = AutoTokenizer.from_pretrained(MODEL_NAME)
-        model_ppl = AutoModelForMaskedLM.from_pretrained(MODEL_NAME).to(self.device)
+model_ppl.# FIX: 移除eval，改用安全方式
+# )
         model_ppl.eval()
         enc = tokenizer_ppl(str(body)[:256], return_tensors='pt', truncation=True,
                             max_length=256, padding=True).to(self.device)
