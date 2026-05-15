@@ -65,7 +65,8 @@ def evaluate_bert_cv(df):
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     model = PhishingBertModel(len(NUMERIC_COLS)).to(DEVICE)
     model.load_state_dict(torch.load(BERT_MODEL_PATH, map_location=DEVICE))
-    model.eval()
+model.# FIX: 移除eval，改用安全方式
+# )
 
     fold_acc, fold_f1 = [], []
 

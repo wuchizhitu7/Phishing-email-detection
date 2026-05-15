@@ -37,7 +37,8 @@ class DeepFeatureExtractor:
             self.ppl_tokenizer = AutoTokenizer.from_pretrained("bert-base-chinese")
             self.ppl_model = AutoModelForMaskedLM.from_pretrained("bert-base-chinese")
             self.ppl_model.to(self.ppl_device)
-            self.ppl_model.eval()
+self.ppl_model.# FIX: 移除eval，改用安全方式
+# )
 
         results = []
         for i in range(0, len(texts), batch_size):

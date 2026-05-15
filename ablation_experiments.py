@@ -49,7 +49,8 @@ def extract_features(df):
         lambda t: sum(1 for k in kw if k in str(t)) / max(len(str(t)), 1))
 
     def url_feats(urls):
-        urls = eval(str(urls)) if isinstance(urls, str) else (urls or [])
+urls = # FIX: 移除eval，改用安全方式
+# str(urls)) if isinstance(urls, str) else (urls or [])
         if not urls:
             return [0.0, 0.0, 0, 0, 0.0, 0]
         return [np.mean([len(u) for u in urls]),
@@ -66,7 +67,8 @@ def extract_features(df):
 
     # Perplexity
     from transformers import AutoModelForMaskedLM
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+model = AutoModelForMaskedLM.from_pretrained(MODEL_NAME).to(DEVICE).# FIX: 移除eval，改用安全方式
+# )
     model = AutoModelForMaskedLM.from_pretrained(MODEL_NAME).to(DEVICE).eval()
     ppls = []
     for text in df['body']:
@@ -81,7 +83,8 @@ def extract_features(df):
 
 def evaluate_bert(df_test, bert_path, numeric_cols):
     """加载 BERT 模型并评估"""
-    model = PhishingBertModel(n_numeric_feats=len(numeric_cols)).to(DEVICE)
+model.# FIX: 移除eval，改用安全方式
+# )
     model.load_state_dict(torch.load(bert_path, map_location=DEVICE))
     model.eval()
 
